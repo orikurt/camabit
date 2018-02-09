@@ -1,5 +1,4 @@
-from motor.motor_tornado import MotorClient
-from camabit.db import connection
+from camabit.app.models.base import Base
 
-class Coin():
-    pass
+class Coin(Base):
+    _collection = "coins"
