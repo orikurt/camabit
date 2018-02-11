@@ -4,7 +4,8 @@ from camabit.db import connection
 
 class Base():
     _collection = None
-    _attributes = dict()
+    _attributes = tuple()
+    _keys = tuple()
     _db = connection._db
 
     def __init__(self, **attributes):
@@ -22,3 +23,14 @@ class Base():
 
     async def find(self, selector):
         pass
+
+    @classmethod
+    async def first_or_create(self, attributes):
+        query = self.get_keys_object(attributes)
+        coin = await self._db[self._collection].find_and_modify(query, attributes, upsert=True)
+        return coin
+
+    @classmethod
+    def get_keys_object(self, data):
+        return {k: data[k] for k in self._keys}
+        

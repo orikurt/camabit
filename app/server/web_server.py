@@ -1,14 +1,24 @@
+from time import sleep
 from tornado.web import Application
 from tornado.ioloop import IOLoop
 from tornado.httpserver import HTTPServer
-from ... import config as conf
+from camabit import config as conf
+from camabit.tasks import update_coins
 
-class WebServer():
-    def __init__(self):
-        self.app = Application()
-        self.server = HTTPServer(app)
+_app = Application()
 
-    def start(self):
-        self.server.bind(conf.server["port"])
-        self.server.start(0)
+class WebServer(HTTPServer):
+    def run(self):
+        self.bind(conf.server["port"])
+        self.start()
+        IOLoop.current().add_callback(self.update_loop)
         IOLoop().current().start()
+
+    async def update_loop(self):
+        await update_coins.run()
+        sleep(10)
+        IOLoop.current().add_callback(self.update_loop)
+
+if __name__=="__main__":
+    server = WebServer(_app)
+    server.run()
