@@ -13,7 +13,6 @@ class Base():
 
     async def create(self, attributes):
         result = await self._db[self._collection].insert_one(attributes)
-        print("create result {}, {}, {}".format(dir(result), result.acknowledged, result.inserted_id))
 
     async def update(self, selector, attributes):
         pass
