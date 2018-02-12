@@ -6,7 +6,7 @@ API_URL = "https://api.coinmarketcap.com/v1/"
 http_client = AsyncHTTPClient()
 
 async def all_coins():
-    url = "{0}ticker/?limit=10&convert=ILS".format(API_URL)
+    url = "{0}ticker/?limit=0&convert=ILS".format(API_URL)
     try:
         print("fetching")
         coins = await Task(http_client.fetch, url)

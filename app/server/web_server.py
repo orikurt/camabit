@@ -5,8 +5,6 @@ from tornado.httpserver import HTTPServer
 from camabit import config as conf
 from camabit.tasks import update_coins
 
-_app = Application()
-
 class WebServer(HTTPServer):
     def run(self):
         self.bind(conf.server["port"])
@@ -16,9 +14,10 @@ class WebServer(HTTPServer):
 
     async def update_loop(self):
         await update_coins.run()
-        await sleep(10)
+        await sleep(5*60)
         IOLoop.current().add_callback(self.update_loop)
 
 if __name__=="__main__":
+    _app = Application()    
     server = WebServer(_app)
     server.run()
