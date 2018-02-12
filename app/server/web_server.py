@@ -1,4 +1,4 @@
-from time import sleep
+from tornado.gen import sleep
 from tornado.web import Application
 from tornado.ioloop import IOLoop
 from tornado.httpserver import HTTPServer
@@ -16,7 +16,7 @@ class WebServer(HTTPServer):
 
     async def update_loop(self):
         await update_coins.run()
-        sleep(10)
+        await sleep(10)
         IOLoop.current().add_callback(self.update_loop)
 
 if __name__=="__main__":
