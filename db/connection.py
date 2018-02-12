@@ -1,5 +1,5 @@
 from motor.motor_tornado import MotorClient
-from camabit import config as conf
+from camabit import conf
 
 _db = None
 
