@@ -1,3 +1,4 @@
+import os
 from tornado.gen import sleep
 from tornado.web import Application
 from tornado.ioloop import IOLoop
@@ -10,15 +11,24 @@ class WebServer(HTTPServer):
     def run(self):
         self.bind(conf.server["port"])
         self.start()
-        IOLoop.current().add_callback(self.update_loop)
+        IOLoop.current().spawn_callback(self.update_loop)
         IOLoop().current().start()
 
     async def update_loop(self):
         await update_coins.run()
         await sleep(5*60)
-        IOLoop.current().add_callback(self.update_loop)
+        IOLoop.current().spawn_callback(self.update_loop)
 
 if __name__=="__main__":
-    _app = Application(Routes)
+    ENV = os.getenv("ENV", "development")
+    SETTINGS = {
+        'name': "Coin Service",
+        'debug': ENV == "development",
+        'autorelaod': ENV == "development",
+        'cookie_secret': conf.server["cookieSecret"]
+    }    
+
+    _app = Application(Routes, SETTINGS)
     server = WebServer(_app)
+    print("Starting server")
     server.run()
