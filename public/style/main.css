@@ -20,16 +20,30 @@
 }
 
 .header .navigation span{
-    padding: 15px;
+    padding: 5px;
     cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
+    /* border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 3px; */
+    font-size: 12px;
+    min-width: 100px;
+    display: inline-block;
 }
 
-.header .navigation span:hover{
-    background-color: purple;
+.header span:hover{
+    /* 
+    background-color: white;
+    color: #425bc9; 
+    border-bottom: 3px solid white;
+    */
+    font-weight: bold;
 }
 
 .header .account {
+    cursor: pointer;
     width: 15%;
+}
+
+.header .account span{
+    position: relative;
+    top: -5px;
 }
