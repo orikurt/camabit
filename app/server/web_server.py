@@ -30,5 +30,5 @@ if __name__=="__main__":
 
     _app = Application(Routes, SETTINGS)
     server = WebServer(_app)
-    print("Starting server")
+    print("Starting server on env {}".format(ENV))
     server.run()

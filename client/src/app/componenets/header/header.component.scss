@@ -1,0 +1,45 @@
+.header{
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;    
+    background-color: #425bc9;
+    font-family: "Impact, Charcoal, sans-serif";
+
+    .logo {
+        width: 15%;
+        cursor: pointer;
+    }
+    
+    .navigation {
+        width: 70%;
+        
+        span{
+            padding: 5px;
+            cursor: pointer;
+            /* border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 3px; */
+            font-size: 12px;
+            min-width: 100px;
+            display: inline-block;
+            &:hover{
+                /* 
+                background-color: white;
+                color: #425bc9; 
+                border-bottom: 3px solid white;
+                */
+                font-weight: bold;
+            }            
+        }        
+    }
+
+    .account {
+        cursor: pointer;
+        width: 15%;
+        span{
+            position: relative;
+            top: -5px;
+        }        
+    }    
+}
