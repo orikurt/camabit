@@ -1,0 +1,22 @@
+@import '../../styles.scss';
+
+.search{
+    align-items: center;
+    display: flex;
+    padding: 15px;
+
+    input{
+        height: 25px;
+        border-radius: 3px;
+    }
+
+    button{
+        background-color: $app-color;
+        color: white;
+        cursor: pointer;
+        i {
+            position: relative;
+            top: 3px;
+        }
+    }
+}

@@ -1,4 +1,40 @@
+@import '../styles.scss';
+
 .app-container{
     direction: rtl;
-    color: #425bc9;        
+    color: $app-color;
+
+    .section{
+        border-top: 2px solid $app-color;
+    }
+
+    .top-section{
+        display: flex;
+        
+        .action{
+            width: 85%;
+            a{
+                text-decoration: none;
+                font-weight: bold;
+            }            
+        }
+
+        .search{
+            align-items: center;
+            display: flex;
+            width: 15%;
+            
+            input{
+                height: 25px;
+                border-radius: 3px;
+            }
+
+            button{
+                background-color: $app-color;
+                color: white;
+                cursor: pointer;
+            }            
+        }
+    }
 }
+
