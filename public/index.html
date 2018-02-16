@@ -1,37 +1,56 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <script src="js/spine/lib/json2.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" type="text/css" href="style/main.css">
+        <script src="js/spine/lib/spine.js"></script>   
+        <script src="js/spine/lib/local.js"></script>   
         <script src="js/main.js"></script>   
     </head>
-    <body>
 
-        <div class="header">
-            <h1 class="logo">כמהביט?</h1>
-            <div class="navigation">
-                <span>עמוד הבית</span>
-                <span>התיק שלי</span>
-                <span>תיקים של אחרים</span>
-                <span>קנה ביט</span>
-                <span>קנה אלטים</span>
-                <span>מה זה ביטקוין?</span>
-                <span>מי אנחנו</span>
+    <body id="#coinapp">
+        <div id="views">
+            <div class="header">
+                <h1 class="logo">כמהביט?</h1>
+                <div class="navigation">
+                    <span>עמוד הבית</span>
+                    <span>התיק שלי</span>
+                    <span>תיקים של אחרים</span>
+                    <span>קנה ביט</span>
+                    <span>קנה אלטים</span>
+                    <span>מה זה ביטקוין?</span>
+                    <span>מי אנחנו</span>
+                </div>
+                <div class="account">
+                    <span>החשבון שלי</span>
+                    <i class="material-icons">account_circle</i>
+                </div>
             </div>
-            <div class="account">
-                <span>החשבון שלי</span>
-                <i class="material-icons">account_circle</i>
-            </div>
+
+            <section class="page-section">
+                <h1 class="action"><a href="#">הירשם</a> כדי להרכיב תיק מטבעות</h1>
+                <div class="search">
+                    <input placeholder="חפש מטבע">
+                    <button><i class="material-icons">search</i></button>
+                </div>
+            </section>
+
+            <section class="page-section">
+                <div class="coins"></div>
+            </section>
         </div>
 
-        <section class="page-section">
-            <h1 class="action"><a href="#">הירשם</a> כדי להרכיב תיק מטבעות</h1>
-            <div class="search">
-                <input placeholder="חפש מטבע">
-                <button><i class="material-icons">search</i></button>
+        <script type="text/x-jquery-tmpl" id="coinTemplate">
+            <div class="coin">
+                <h3>rendered</h3>
+              <div class="view" title="Double click to edit...">
+                <input type="checkbox" {{if done}}checked="checked"{{/if}}>
+                <span>${name}</span> <a class="destroy"></a>
+              </div>
             </div>
-        </section>
-
-        <section class="page-section"></section>
-    </body>
+          </script>        
+    </body>    
 </html>
