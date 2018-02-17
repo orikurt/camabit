@@ -1,0 +1,16 @@
+<table class="coins-table">
+  <thead>
+    <th>מטבע</th>
+    <th>מחיר</th>
+    <th>כמה יש לי?</th>
+    <th>רווח/הפסד</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let coin of coins">
+      <td>{{ coin.name }}</td>
+      <td>{{ coin.symbol }}</td>
+      <td>?</td>
+      <td>?</td>
+    </tr>
+  </tbody>
+</table>
