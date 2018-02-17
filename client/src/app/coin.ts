@@ -17,12 +17,5 @@ export class Coin{
 	price_ils : number;
 	_24h_volume_ils : number;
 	market_cap_ils : number;
-
-	24h_volume_usd(): number{
-		return this._24h_volume_usd
-	}
-
-	24h_volume_ils(): number{
-		return this._24h_volume_ils
-	}	
+	image_url: string;
 }

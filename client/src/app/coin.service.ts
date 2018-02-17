@@ -15,7 +15,13 @@ export class CoinService {
 
   getCoins(): Observable<Coin[]> {
     return this.http.get(this.coinsUrl).pipe(
-      map(res => res.coins)
+      map(res => {
+        return res.coins.map(coin => {
+          coin._24h_volume_usd = coin['24h_volume_usd'];
+          coin._24h_volume_ils = coin['24h_volume_ils'];
+          return coin;
+        });
+      })
     );
   }
 }

@@ -3,5 +3,30 @@
 
     th, td{
         padding: 10px;
+        text-align: center;
+    }
+
+    .coin_details{
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+
+        .change{
+            width: 20%;
+            color: green;
+            font-size: 12px;
+            display: table;
+            align-self: center;
+            height: 100%;
+            position: absolute;
+        }
+        .name{
+            width: 80%;
+            padding: 5px;
+        }
+
+        .logo{
+            width: 80%;
+        }
     }
 }
