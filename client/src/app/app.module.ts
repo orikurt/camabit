@@ -10,6 +10,7 @@ import { CoinsComponent } from './coins/coins.component';
 import { MetaComponent } from './meta/meta.component';
 import { HotCoinComponent } from './hot-coin/hot-coin.component';
 import { HomeComponent } from './home/home.component';
+import { AllCoinsComponent } from './all-coins/all-coins.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HomeComponent } from './home/home.component';
     CoinsComponent,
     MetaComponent,
     HotCoinComponent,
-    HomeComponent
+    HomeComponent,
+    AllCoinsComponent
   ],
   imports: [
     BrowserModule,
