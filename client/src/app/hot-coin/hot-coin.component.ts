@@ -12,7 +12,7 @@ export class HotCoinComponent implements OnInit {
   constructor(private coinService: CoinService) { }
 
   ngOnInit() {
-    this.coinService.getCoins().subscribe(res => this.hotCoin = res[Math.round(Math.random() * 100)]);
+    this.coinService.getCoins().subscribe(res => this.hotCoin = res.sort((coina, coinb) => { return coina.percent_change_24h - coinb.percent_change_24h; }).reverse()[0]);
   }
 
 }
