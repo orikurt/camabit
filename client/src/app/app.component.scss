@@ -17,28 +17,16 @@
         }
 
         .action{
-            width: 85%;
+            width: 100%;
             a{
                 text-decoration: none;
                 font-weight: bold;
             }            
         }
 
-        .search{
-            align-items: center;
-            display: flex;
-            width: 15%;
-            
-            input{
-                height: 25px;
-                border-radius: 3px;
-            }
-
-            button{
-                background-color: $app-color;
-                color: white;
-                cursor: pointer;
-            }            
+        search-bar{
+            position: absolute;
+            left: 5px;
         }
     }
 }

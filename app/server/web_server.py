@@ -15,7 +15,7 @@ class WebServer(HTTPServer):
         IOLoop().current().start()
 
     async def update_loop(self):
-        await update_coins.run()
+        IOLoop.current().spawn_callback(update_coins.run)
         await sleep(5*60)
         IOLoop.current().spawn_callback(self.update_loop)
 
@@ -28,7 +28,7 @@ if __name__=="__main__":
         'cookie_secret': conf.server["cookieSecret"]
     }    
 
-    _app = Application(Routes, SETTINGS)
+    _app = Application(Routes, **SETTINGS)
     server = WebServer(_app)
     print("Starting server on env {}".format(ENV))
     server.run()
