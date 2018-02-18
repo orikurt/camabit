@@ -11,7 +11,7 @@
       <tr *ngFor="let coin of coins">
         <td>{{coin.rank}}</td>
         <td><div class="coin_details">
-          <span class="change">{{coin.percent_change_24h}}%</span>
+          <span class="change" [ngClass]="{'negative': coin.percent_change_24h < 0, 'positive': coin.percent_change_24h >= 0}">{{coin.percent_change_24h}}%</span>
           <span class="logo"><img [src]="coin.image_url"></span>
           <span class="name">{{ coin.name }}</span>
         </div></td>

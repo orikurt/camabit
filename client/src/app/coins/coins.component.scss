@@ -17,12 +17,17 @@
             .change{
                 direction: ltr;
                 width: 20%;
-                color: green;
-                font-size: 12px;
+                font-size: 14px;
                 display: table;
                 align-self: center;
                 height: 100%;
                 position: absolute;
+            }
+            .negative{
+                color: red;
+            }
+            .positive{
+                color: green;
             }
             .name{
                 width: 100%;

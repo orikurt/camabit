@@ -4,9 +4,13 @@
 
     .change{
         direction: ltr;
-        color: green;
     }
-
+    .negative{
+        color: red;
+    }
+    .positive{
+        color: green;
+    }    
     .change, .name{
         padding: 5px;
     }
