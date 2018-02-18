@@ -1,0 +1,12 @@
+<div class="meta">
+  <span class="field">מטבעות: </span>
+  <span class="value">{{ meta.active_assets + meta.active_currencies }}</span>
+  <span class="field">שווי שוק: </span>
+  <span class="value">{{ meta.total_market_cap_ils | currency: "&#x20AA;" }}</span>
+  <span class="field">נפח 24 שעות: </span>
+  <span class="value">{{ meta.total_24h_volume_ils | currency: "&#x20AA;" }}</span>  
+  <span class="field">נתח שוק ביט: </span>
+  <span class="value">{{ meta.bitcoin_percentage_of_market_cap }}%</span>    
+  <span class="field">עדכון אחרון: </span>
+  <span class="value">{{ meta.last_updated*1000 | date:'short' }}</span>      
+</div>

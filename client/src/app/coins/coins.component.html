@@ -1,20 +1,24 @@
-<table class="coins-table">
-  <thead>
-    <th>מטבע</th>
-    <th>מחיר</th>
-    <th>כמה יש לי?</th>
-    <th>רווח/הפסד</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let coin of coins">
-      <td><div class="coin_details">
-        <span class="change">{{coin.percent_change_24h}}%</span>
-        <span class="logo"><img [src]="coin.image_url"></span>
-        <span class="name">{{ coin.name }}</span>
-      </div></td>
-      <td>{{ coin.price_ils | currency: "&#x20AA;" }}</td>
-      <td>?</td>
-      <td>?</td>
-    </tr>
-  </tbody>
-</table>
+<div class="cointainer">
+  <table class="coins-table">
+    <thead>
+      <th></th>
+      <th>מטבע</th>
+      <th>מחיר</th>
+      <th>כמה יש לי?</th>
+      <th>רווח/הפסד</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let coin of coins">
+        <td>{{coin.rank}}</td>
+        <td><div class="coin_details">
+          <span class="change">{{coin.percent_change_24h}}%</span>
+          <span class="logo"><img [src]="coin.image_url"></span>
+          <span class="name">{{ coin.name }}</span>
+        </div></td>
+        <td>{{ coin.price_ils | currency: "&#x20AA;" }}</td>
+        <td>?</td>
+        <td>?</td>
+      </tr>
+    </tbody>
+  </table>
+</div>  

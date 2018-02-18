@@ -7,13 +7,15 @@ import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
 import { CoinService } from './coin.service';
 import { CoinsComponent } from './coins/coins.component';
+import { MetaComponent } from './meta/meta.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SearchComponent,
-    CoinsComponent
+    CoinsComponent,
+    MetaComponent
   ],
   imports: [
     BrowserModule,

@@ -1,32 +1,37 @@
-.coins-table{
-    margin: 0 auto;
+.cointainer{
+    height: 54vh;
+    overflow: scroll;    
+    .coins-table{
+        margin: 0 auto;
 
-    th, td{
-        padding: 10px;
-        text-align: center;
-    }
-
-    .coin_details{
-        display: flex;
-        flex-wrap: wrap;
-        position: relative;
-
-        .change{
-            width: 20%;
-            color: green;
-            font-size: 12px;
-            display: table;
-            align-self: center;
-            height: 100%;
-            position: absolute;
-        }
-        .name{
-            width: 80%;
-            padding: 5px;
+        th, td{
+            padding: 10px;
+            text-align: center;
         }
 
-        .logo{
-            width: 80%;
+        .coin_details{
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            max-width: 200px;
+            .change{
+                direction: ltr;
+                width: 20%;
+                color: green;
+                font-size: 12px;
+                display: table;
+                align-self: center;
+                height: 100%;
+                position: absolute;
+            }
+            .name{
+                width: 100%;
+                padding: 5px;
+            }
+
+            .logo{
+                width: 100%;
+            }
         }
     }
 }

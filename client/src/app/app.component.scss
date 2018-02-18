@@ -10,7 +10,12 @@
 
     .top-section{
         display: flex;
+        flex-wrap: wrap;
         
+        app-meta{
+            width: 100%;
+        }
+
         .action{
             width: 85%;
             a{

@@ -10,6 +10,7 @@ import { COINS } from './mock.coins';
 export class CoinService {
 
   private coinsUrl = '/coins';
+  private metaUrl = '/meta';
   // coins: Coin[] = [];
   constructor( private http: HttpClient ) { }
 
@@ -23,5 +24,13 @@ export class CoinService {
         });
       })
     );
+  }
+
+  getMeta(): Observable<any>{
+    return this.http.get(this.metaUrl).pipe(
+      map(res => {
+        return JSON.parse(res.meta);
+      })
+    )
   }
 }
