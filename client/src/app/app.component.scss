@@ -3,31 +3,5 @@
 .app-container{
     direction: rtl;
     color: $app-color;
-
-    .section{
-        border-top: 2px solid $app-color;
-    }
-
-    .top-section{
-        display: flex;
-        flex-wrap: wrap;
-        
-        app-meta{
-            width: 100%;
-        }
-
-        .action{
-            width: 100%;
-            a{
-                text-decoration: none;
-                font-weight: bold;
-            }            
-        }
-
-        search-bar{
-            position: absolute;
-            left: 5px;
-        }
-    }
 }
 

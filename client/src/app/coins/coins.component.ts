@@ -3,7 +3,7 @@ import { CoinService } from '../coin.service';
 import { Coin } from '../coin';
 
 @Component({
-  selector: 'app-coins',
+  selector: 'top-coins',
   templateUrl: './coins.component.html',
   styleUrls: ['./coins.component.scss']
 })

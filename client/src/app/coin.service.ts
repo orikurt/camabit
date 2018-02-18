@@ -15,7 +15,7 @@ export class CoinService {
   constructor( private http: HttpClient ) { }
 
   getCoins(): Observable<Coin[]> {
-    return this.http.get(this.coinsUrl).pipe(
+    return this.http.get<any>(this.coinsUrl).pipe(
       map(res => {
         return res.coins.map(coin => {
           coin._24h_volume_usd = coin['24h_volume_usd'];
@@ -27,7 +27,7 @@ export class CoinService {
   }
 
   getMeta(): Observable<any>{
-    return this.http.get(this.metaUrl).pipe(
+    return this.http.get<any>(this.metaUrl).pipe(
       map(res => {
         return JSON.parse(res.meta);
       })

@@ -1,0 +1,13 @@
+.hot-coin{
+    display: flex;
+    flex-wrap: wrap;
+
+    .change{
+        direction: ltr;
+        color: green;
+    }
+
+    .change, .name{
+        padding: 5px;
+    }
+}

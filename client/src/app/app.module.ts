@@ -8,6 +8,8 @@ import { SearchComponent } from './search/search.component';
 import { CoinService } from './coin.service';
 import { CoinsComponent } from './coins/coins.component';
 import { MetaComponent } from './meta/meta.component';
+import { HotCoinComponent } from './hot-coin/hot-coin.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { MetaComponent } from './meta/meta.component';
     HeaderComponent,
     SearchComponent,
     CoinsComponent,
-    MetaComponent
+    MetaComponent,
+    HotCoinComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

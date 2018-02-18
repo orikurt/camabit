@@ -1,0 +1,43 @@
+@import '../../styles.scss';
+
+.section{
+    border-top: 2px solid $app-color;
+    display: flex;
+    flex-wrap: wrap;        
+    .header{
+        width: 100%;
+    }        
+}
+
+.top-section{
+    
+    app-meta{
+        width: 100%;
+    }
+
+    .action{
+        width: 100%;
+        a{
+            text-decoration: none;
+            font-weight: bold;
+        }            
+    }
+
+    search-bar{
+        position: absolute;
+        left: 5px;
+    }
+}
+
+.coin-table{
+    
+    .hot-coin-section{
+        position: absolute;
+        left: 25px;
+        cursor: pointer;
+    }
+
+    top-coins{
+        margin: 0 auto;
+    }
+}
