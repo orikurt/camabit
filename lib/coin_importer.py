@@ -16,3 +16,14 @@ async def all_coins():
     except Exception as e:
         print(e)
         return None
+
+async def global_meta():
+    url = "{0}global/?convert=ILS".format(API_URL)
+    try:
+        global_meta = await Task(http_client.fetch, url)
+        global_meta = global_meta.body.decode("utf8")
+        print("global metadata {}".format(global_meta))
+        return json.loads(global_meta)
+    except Exception as e:
+        print(e)
+        return None    

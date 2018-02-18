@@ -27,14 +27,22 @@ class Base():
     @classmethod
     async def all(self):
         cursor = self._db[self._collection].find(projection={'_id': False})
-        all_coins = await cursor.to_list(length=None)
-        return all_coins
+        all_document = await cursor.to_list(length=None)
+        return all_document
+
+    @classmethod
+    async def last(self, field):
+        cursor = self._db[self._collection].find(projection={'_id': False}).sort(field, -1).limit(1)
+        await cursor.fetch_next
+        meta = cursor.next_object()
+        return meta
+        
 
     @classmethod
     async def first_or_create(self, attributes):
         query = self.get_keys_object(attributes)
-        coin = await self._db[self._collection].find_one_and_update(query, {"$set": attributes}, upsert=True)
-        return coin
+        document = await self._db[self._collection].find_one_and_update(query, {"$set": attributes}, upsert=True)
+        return document
 
     @classmethod
     def get_keys_object(self, data):
