@@ -13,7 +13,7 @@ export class AllCoinsComponent implements OnInit {
   constructor(private coinService: CoinService) { }
 
   ngOnInit() {
-    this.coinService.getCoins().subscribe(res => this.allCoins = res);
+    this.coinService.coins.subscribe(coins => this.allCoins = coins);
   }
 
 }

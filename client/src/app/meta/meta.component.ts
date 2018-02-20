@@ -12,9 +12,8 @@ export class MetaComponent implements OnInit {
   constructor(private coinService:CoinService) { }
 
   ngOnInit() {
-    this.coinService.getMeta().subscribe(res => {
-      this.meta = res
-      console.log(this.meta);
+    this.coinService.meta.subscribe(meta => {
+      this.meta = meta;
     });
   }
 

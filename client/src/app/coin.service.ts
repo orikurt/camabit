@@ -1,36 +1,45 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
-import { map } from 'rxjs/operators'
+import { BehaviorSubject } from 'rxjs/BehaviorSubject'
+import { map } from 'rxjs/operators';
 import { Coin } from './coin';
-import { COINS } from './mock.coins';
 
 @Injectable()
 export class CoinService {
 
   private coinsUrl = '/coins';
   private metaUrl = '/meta';
-  // coins: Coin[] = [];
-  constructor( private http: HttpClient ) { }
 
-  getCoins(): Observable<Coin[]> {
-    return this.http.get<any>(this.coinsUrl).pipe(
+  private _coins = new BehaviorSubject<Coin[]>([]);
+  public coins = this._coins.asObservable();
+
+  private _meta = new BehaviorSubject({});
+  public meta = this._meta.asObservable();  
+  
+  constructor( private http: HttpClient ) {
+    this.getCoins();
+    this.getMeta();
+  }
+
+  getCoins(): void{
+    this.http.get<any>(this.coinsUrl).pipe(
       map(res => {
-        return res.coins.map(coin => {
+        res.coins.map(coin => {
           coin._24h_volume_usd = coin['24h_volume_usd'];
           coin._24h_volume_ils = coin['24h_volume_ils'];
           return coin;
         });
+        return res.coins;
       })
-    );
+    ).subscribe(coins => this._coins.next(coins));
   }
 
-  getMeta(): Observable<any>{
-    return this.http.get<any>(this.metaUrl).pipe(
+  getMeta(): void{
+    this.http.get<any>(this.metaUrl).pipe(
       map(res => {
         return JSON.parse(res.meta);
       })
-    )
+    ).subscribe(meta => this._meta.next(meta));
   }
 }
