@@ -1,5 +1,5 @@
-<div class="hot-coin">
-  <span class="change" [ngClass]="{'negative': hotCoin.percent_change_24h < 0, 'positive': hotCoin.percent_change_24h >= 0}">{{ hotCoin.percent_change_24h}}%</span>
+<div class="hot-coin" *ngIf="hotCoin">
+  <span class="change" [ngClass]="{'negative': (hotCoin.percent_change_24h < 0), 'positive': (hotCoin.percent_change_24h >= 0)}">{{ hotCoin.percent_change_24h}}%</span>
   <span class="logo"><img [src]="hotCoin.image_url"></span>
   <span class="name">{{ hotCoin.name }}</span>
 </div>
