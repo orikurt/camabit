@@ -11,9 +11,13 @@
         margin: 0 auto;
         table-layout: fixed;
         border-collapse: collapse;
-        th, td{
-            padding: 10px;
-            text-align: center;
+
+        tr{
+            cursor: pointer;
+            th, td{
+                padding: 10px;
+                text-align: center;
+            }    
         }
 
         .coin_details{
