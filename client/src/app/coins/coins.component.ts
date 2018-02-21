@@ -14,10 +14,6 @@ export class CoinsComponent implements OnInit {
   constructor(private coinService: CoinService) { }
 
   ngOnInit() {
-    this.getCoins();
-  }
-
-  getCoins(): void{
-    this.coinService.getCoins().subscribe(res => this.coins = res);
+    this.coinService.coins.subscribe(coins => this.coins = coins);
   }
 }

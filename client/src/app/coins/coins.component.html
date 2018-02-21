@@ -1,20 +1,33 @@
 <div class="cointainer">
+  <div class="hot-coin-section">
+    <h3>חם עכשיו!</h3>
+    <hot-coin></hot-coin>
+  </div>  
   <table class="coins-table">
     <thead>
-      <th></th>
-      <th>מטבע</th>
-      <th>מחיר</th>
-      <th>כמה יש לי?</th>
-      <th>רווח/הפסד</th>
+      <tr>
+        <th></th> 
+        <th>מטבע</th>
+        <th>24 שעות</th>
+        <th>מחיר</th>
+        <th>כמה יש לי?</th>
+        <th>רווח/הפסד</th>
+      </tr>        
     </thead>
     <tbody>
       <tr *ngFor="let coin of coins">
         <td>{{coin.rank}}</td>
-        <td><div class="coin_details">
-          <span class="change" [ngClass]="{'negative': coin.percent_change_24h < 0, 'positive': coin.percent_change_24h >= 0}">{{coin.percent_change_24h}}%</span>
-          <span class="logo"><img class="coin-icon" [src]="coin.image_url"></span>
-          <span class="name">{{ coin.name }}</span>
-        </div></td>
+        <td>
+          <div class="coin_details">
+              <span class="logo"><img class="coin-icon" [src]="coin.image_url"></span>
+              <span class="name">{{ coin.name }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="change">
+              <span [ngClass]="{'negative': coin.percent_change_24h < 0, 'positive': coin.percent_change_24h >= 0}">{{coin.percent_change_24h}}%</span>
+          </div>          
+        </td>
         <td>{{ coin.price_ils | currency: "&#x20AA;" }}</td>
         <td>?</td>
         <td>?</td>

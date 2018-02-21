@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CoinService } from '../coin.service'
+import { CoinService } from '../coin.service';
 import { Coin } from '../coin';
 
 @Component({
@@ -8,11 +8,13 @@ import { Coin } from '../coin';
   styleUrls: ['./hot-coin.component.scss']
 })
 export class HotCoinComponent implements OnInit {
-  hotCoin: Coin;
+  hotCoin: Coin = {} as Coin;
   constructor(private coinService: CoinService) { }
 
   ngOnInit() {
-    this.coinService.getCoins().subscribe(res => this.hotCoin = res.sort((coina, coinb) => { return coina.percent_change_24h - coinb.percent_change_24h; }).reverse()[0]);
+    this.coinService.coins.subscribe(coins => {
+      let coinsCopy = coins.concat();
+      this.hotCoin = coinsCopy.sort((coina, coinb) => { return coina.percent_change_24h - coinb.percent_change_24h; }).reverse()[0]});
   }
 
 }

@@ -1,12 +1,23 @@
 .cointainer{
+    overflow: auto;
     height: 42vh;
-    overflow: scroll;    
+    .hot-coin-section{
+        position: absolute;
+        left: 25px;
+        cursor: pointer;
+    }
+
     .coins-table{
         margin: 0 auto;
+        table-layout: fixed;
+        border-collapse: collapse;
 
-        th, td{
-            padding: 10px;
-            text-align: center;
+        tr{
+            cursor: pointer;
+            th, td{
+                padding: 10px;
+                text-align: center;
+            }    
         }
 
         .coin_details{
@@ -14,29 +25,27 @@
             flex-wrap: wrap;
             position: relative;
             max-width: 200px;
-            .change{
-                direction: ltr;
-                width: 20%;
-                font-size: 14px;
-                display: table;
-                align-self: center;
-                height: 100%;
-                position: absolute;
+            .name{
+                width: 100%;
+                padding: 5px;
             }
+            .logo{
+                width: 100%;
+            }
+
+        }
+        .change{
+            direction: ltr;
+            width: 100%;
+            font-size: 14px;
+            display: table;
+            align-self: center;
             .negative{
                 color: red;
             }
             .positive{
                 color: green;
-            }
-            .name{
-                width: 100%;
-                padding: 5px;
-            }
-
-            .logo{
-                width: 100%;
-            }
-        }
+            }                
+        }        
     }
 }
