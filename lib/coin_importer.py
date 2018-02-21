@@ -32,10 +32,18 @@ async def coin_images():
     url = "https://www.cryptocompare.com/api/data/coinlist/"
     coins = await Task(http_client.fetch, url)
     coins = json.loads(coins.body)["Data"]
+    coint = 0
+    matched = 0
     for coin in coins:
         try:
-            id = coins[coin]["CoinName"].lower()
+            #id = coins[coin]["CoinName"].lower()
+            symbol = coins[coin]["Symbol"]
             image_url = coins[coin]["ImageUrl"]
-            c = await Coin.update({"id": id}, {"image_url": "https://www.cryptocompare.com{}".format(image_url)})
+            c = await Coin.update({"symbol": symbol}, {"image_url": "https://www.cryptocompare.com{}".format(image_url)})
+            if c.modified_count == 1:
+                coint += 1
+            if c.matched_count == 1:
+                matched += 1
         except KeyError:
             print(coins[coin])
+    print("updated: {}, matched: {}".format(coint, matched))
