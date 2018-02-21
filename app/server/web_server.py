@@ -5,6 +5,7 @@ from tornado.ioloop import IOLoop
 from tornado.httpserver import HTTPServer
 from camabit import conf
 from camabit.tasks import update_coins
+from camabit.lib import coin_importer
 from camabit.config.routes import Routes
 
 class WebServer(HTTPServer):
@@ -12,6 +13,7 @@ class WebServer(HTTPServer):
         self.bind(conf.server["port"])
         self.start()
         IOLoop.current().spawn_callback(self.update_loop)
+        IOLoop.current().spawn_callback(coin_importer.coin_images)
         IOLoop().current().start()
 
     async def update_loop(self):

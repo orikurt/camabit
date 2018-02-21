@@ -15,14 +15,18 @@ class Base():
     async def create(self, attributes):
         result = await self._db[self._collection].insert_one(attributes)
 
-    async def update(self, selector, attributes):
-        pass
-
     async def delete(self, selector):
         pass
 
+    @classmethod
+    async def update(self, selector, attributes):
+        return await self._db[self._collection].update_one(selector, {"$set": attributes})
+
+    @classmethod
     async def find(self, selector):
-        pass
+        cursor = self._db[self._collection].find(selector, projection={'_id': False})
+        results = await cursor.to_list(length=None)
+        return results
 
     @classmethod
     async def all(self):
