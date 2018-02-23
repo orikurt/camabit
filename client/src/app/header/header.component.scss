@@ -47,3 +47,45 @@
 @media (min-width: 320px) and (max-width: 480px) {
     @import 'mobile';
 }
+
+.header{
+    color: white;
+    background-color: ivory;
+    font-family: "Impact, Charcoal, sans-serif";
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;    
+    
+    .logo {
+        cursor: pointer;
+        padding-bottom: 15px;
+        color: $app-color;
+        h1{
+            margin-bottom: 0px;
+        }
+        span{
+            color: lightseagreen;
+        }
+    }
+    
+    .navigation {        
+        span{
+            cursor: pointer;
+            font-size: 14px;
+            &:hover{
+                font-weight: bold;
+            }            
+        }        
+    }
+
+    .account {
+        cursor: pointer;
+        width: 15%;
+        span{
+            position: relative;
+            top: -5px;
+        }        
+    }    
+}
+

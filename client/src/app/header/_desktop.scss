@@ -1,23 +1,10 @@
 .header{
-    color: white;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;    
-    background-color: $app-color;
-    font-family: "Impact, Charcoal, sans-serif";
+    .hamburger{
+        display: none;
+    }
 
     .logo {
         width: 15%;
-        cursor: pointer;
-        padding-bottom: 15px;
-        color: #d8f402;
-        h1{
-            margin-bottom: 0px;
-        }
-        span{
-            color: ivory;
-        }
     }
     
     .navigation {
@@ -25,13 +12,8 @@
         
         span{
             padding: 5px;
-            cursor: pointer;
-            font-size: 14px;
             min-width: 100px;
             display: inline-block;
-            &:hover{
-                font-weight: bold;
-            }            
         }        
     }
 
