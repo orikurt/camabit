@@ -55,12 +55,11 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;    
-    
+    font-family: "crypton";
     .logo {
         cursor: pointer;
         padding-bottom: 15px;
         color: $app-color;
-        font-family: "crypton";
         h1{
             margin-bottom: 0px;
             margin-top: 0px;
@@ -81,6 +80,7 @@
     }
 
     .account {
+        font-family: "arial";
         cursor: pointer;
         width: 15%;
         span{
