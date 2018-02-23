@@ -1,0 +1,15 @@
+.meta{
+    ul{
+        margin-bottom: 0;
+        margin-top: 10px;
+        li{
+            display: none;
+            &.show-mobile{
+                display: block;
+                .value{
+                    border-left: none;
+                }
+            }
+        }
+    }
+}

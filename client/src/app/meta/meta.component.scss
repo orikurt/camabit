@@ -1,12 +1,30 @@
 @import '../../styles.scss';
 
+@media (min-width: 1281px) {
+    @import 'desktop';
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+    @import 'desktop';
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    @import 'desktop';
+} 
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    @import 'mobile';
+}
+@media (min-width: 481px) and (max-width: 767px) {
+    @import 'mobile';
+}
+@media (min-width: 320px) and (max-width: 480px) {
+    @import 'mobile';
+}
+
 .meta{
     width: 100%;
     ul{
         li {
             list-style: none;
             padding: 5px;
-            display: inline;
             .field{
                 color: #444;
                 font-size: 14px;
