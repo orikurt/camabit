@@ -1,15 +1,21 @@
+@import '../../styles.scss';
+
 .meta{
     padding-top: 10px;
     width: 100%;
 
-    span: {
+    span {
         padding: 5px;
     }
     .field{
         color: #444;
-        font-size: 12px;
+        font-size: 14px;
     }
     .value{
-        font-size: 14px;
+        font-size: 16px;
+        border-left: 1px solid $app-color;
+        &.last{
+            border-left: none;
+        }
     }
 }
