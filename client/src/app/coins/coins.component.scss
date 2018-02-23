@@ -1,50 +1,54 @@
-.cointainer{
-    overflow: auto;
-    height: 42vh;
-    .hot-coin-section{
-        position: absolute;
-        left: 125px;
-        cursor: pointer;
-    }
+@import '../../styles.scss';
 
+@media (min-width: 1281px) {
+    @import 'desktop';
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+    @import 'desktop';
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    @import 'desktop';
+} 
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    @import 'mobile';
+}
+@media (min-width: 481px) and (max-width: 767px) {
+    @import 'mobile';
+}
+@media (min-width: 320px) and (max-width: 480px) {
+    @import 'mobile';
+}
+.cointainer{
     .coins-table{
         table-layout: fixed;
         border-collapse: collapse;
 
         tr{
             cursor: pointer;
+            border-bottom: 1px solid $app-color;
+            border-left: 1px solid $app-color;
             th, td{
-                padding: 10px;
                 text-align: center;
+                .coin_details{
+                    display: flex;
+                    flex-wrap: wrap;
+                    position: relative;
+                    max-width: 200px;
+                }
+                .change{
+                    direction: ltr;
+                    width: 100%;
+                    font-size: 14px;
+                    display: table;
+                    align-self: center;
+                    .negative{
+                        color: red;
+                    }
+                    .positive{
+                        color: green;
+                    }                
+                }                        
             }    
         }
-
-        .coin_details{
-            display: flex;
-            flex-wrap: wrap;
-            position: relative;
-            max-width: 200px;
-            .name{
-                width: 60%;
-                padding: 5px;
-            }
-            .logo{
-                width: 35%;
-            }
-
-        }
-        .change{
-            direction: ltr;
-            width: 100%;
-            font-size: 14px;
-            display: table;
-            align-self: center;
-            .negative{
-                color: red;
-            }
-            .positive{
-                color: green;
-            }                
-        }        
     }
 }

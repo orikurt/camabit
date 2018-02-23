@@ -1,0 +1,26 @@
+
+.cointainer{
+    overflow: auto;
+    height: 42vh;
+    .hot-coin-section{
+        position: absolute;
+        left: 125px;
+        cursor: pointer;
+    }    
+    .coins-table{
+        tr{
+            th, td{
+                padding: 10px;
+                .coin_details{
+                    .name{
+                        width: 60%;
+                        padding: 5px;
+                    }
+                    .logo{
+                        width: 35%;
+                    }
+                }
+            }
+        }        
+    }
+}

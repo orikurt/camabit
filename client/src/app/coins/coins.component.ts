@@ -12,7 +12,7 @@ export class CoinsComponent implements OnInit {
   coins: Coin[] = [];
 
   constructor(private coinService: CoinService) { }
-
+    
   ngOnInit() {
     this.coinService.coins.subscribe(coins => this.coins = coins);
   }

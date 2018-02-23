@@ -11,6 +11,7 @@ import { MetaComponent } from './meta/meta.component';
 import { HotCoinComponent } from './hot-coin/hot-coin.component';
 import { HomeComponent } from './home/home.component';
 import { AllCoinsComponent } from './all-coins/all-coins.component';
+import { LargeNumberPipe } from './large-number.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AllCoinsComponent } from './all-coins/all-coins.component';
     MetaComponent,
     HotCoinComponent,
     HomeComponent,
-    AllCoinsComponent
+    AllCoinsComponent,
+    LargeNumberPipe
   ],
   imports: [
     BrowserModule,

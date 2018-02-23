@@ -1,0 +1,33 @@
+.cointainer{
+    .hot-coin-section{
+        display: none;
+    }
+    .coins-table-cointainer{
+        width: 100%;
+        overflow-x: auto;        
+        .coins-table{
+            width: 100%;
+            tr{
+                padding: 3px;
+                font-size: 14px;
+                th, td{
+                    width: 70px;
+                    padding: 8px;
+                    &.rank{
+                        width: 20px;
+                        border-left: 1px solid $app-color;
+                    }
+                    .coin_details{
+                        .name{
+                            width: 100%;
+                            padding: 5px;
+                        }
+                        .logo{
+                            width: 100%;
+                        }
+                    }            
+                }
+            }
+        }        
+    }
+}

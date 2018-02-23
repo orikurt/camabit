@@ -1,11 +1,12 @@
 .header{
     .logo {
-        width: 69%;
+        width: 89%;
         display: flex;
         flex-wrap: wrap;
         text-align: right;
         h1{
             width: 100%;
+            padding-right: 10px;
         }
         span{
             display: none;
@@ -15,6 +16,7 @@
     .hamburger{
         color: $app-color;
         cursor: pointer;
+        width: 10%;
     }
     
     .navigation {
