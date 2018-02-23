@@ -31,7 +31,7 @@ async def global_meta():
 async def coin_images():
     url = "https://www.cryptocompare.com/api/data/coinlist/"
     coins = await Task(http_client.fetch, url)
-    coins = json.loads(coins.body)["Data"]
+    coins = json.loads(coins.body.decode("utf8"))["Data"]
     coint = 0
     matched = 0
     for coin in coins:
