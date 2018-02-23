@@ -1,0 +1,18 @@
+.section{
+    &.top-section{
+        .action{
+            font-size: 16px;
+        }
+        search-bar{
+            display: none;
+        }    
+    }
+    &.coin-table{
+        .header{
+            display: none;
+        }
+    }
+    &.all-coins{
+        display: none;
+    }
+}
