@@ -12,9 +12,13 @@
     .logo {
         width: 15%;
         cursor: pointer;
-        color: khaki;       
+        color: #d8f402;
+        padding-bottom: 15px;
+        h1{
+            margin-bottom: 0px;
+        }
         span{
-            color: lightgreen;
+            color: ivory;
         }
     }
     
@@ -24,7 +28,7 @@
         span{
             padding: 5px;
             cursor: pointer;
-            font-size: 12px;
+            font-size: 14px;
             min-width: 100px;
             display: inline-block;
             &:hover{
