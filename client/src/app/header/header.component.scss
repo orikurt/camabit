@@ -49,9 +49,8 @@
 }
 
 .header{
-    color: white;
+    color: $app-color;
     background-color: ivory;
-    font-family: "Impact, Charcoal, sans-serif";
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -61,11 +60,13 @@
         cursor: pointer;
         padding-bottom: 15px;
         color: $app-color;
+        font-family: "crypton";
         h1{
             margin-bottom: 0px;
+            margin-top: 0px;
         }
         span{
-            color: lightseagreen;
+            color: $app-color-secondary;
         }
     }
     

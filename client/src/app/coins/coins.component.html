@@ -8,8 +8,13 @@
       <tr>
         <th></th> 
         <th>מטבע</th>
+        <th>שעה</th>
         <th>24 שעות</th>
+        <th>שבוע</th>
         <th>מחיר</th>
+        <th>שווי שוק</th>
+        <th>כמות מטבעות</th>
+        <th>סה"כ מטבעות</th>
         <th>כמה יש לי?</th>
         <th>רווח/הפסד</th>
       </tr>        
@@ -24,11 +29,24 @@
           </div>
         </td>
         <td>
+            <div class="change">
+                <span [ngClass]="{'negative': coin.percent_change_1h < 0, 'positive': coin.percent_change_1h >= 0}">{{coin.percent_change_1h}}%</span>
+            </div>          
+          </td>
+        <td>
           <div class="change">
               <span [ngClass]="{'negative': coin.percent_change_24h < 0, 'positive': coin.percent_change_24h >= 0}">{{coin.percent_change_24h}}%</span>
           </div>          
         </td>
+        <td>
+            <div class="change">
+                <span [ngClass]="{'negative': coin.percent_change_7d < 0, 'positive': coin.percent_change_7d >= 0}">{{coin.percent_change_7d}}%</span>
+            </div>          
+          </td>        
         <td>{{ coin.price_ils | currency: "&#x20AA;" }}</td>
+        <td>{{ coin.market_cap_ils | currency: "&#x20AA;" }}</td>        
+        <td>{{ coin.total_supply | number }}</td>
+        <td>{{ coin.max_supply | number }}</td>
         <td>?</td>
         <td>?</td>
       </tr>

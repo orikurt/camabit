@@ -1,6 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 $app-color: #006405;
+$app-color-secondary: #009005;
+
+@font-face {
+    font-family: "crypton";
+    src: url('assets/fonts/HorevCLM-Heavy.otf');
+}
 
 body{
     direction: rtl;

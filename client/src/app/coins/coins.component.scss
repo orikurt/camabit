@@ -8,7 +8,6 @@
     }
 
     .coins-table{
-        margin: 0 auto;
         table-layout: fixed;
         border-collapse: collapse;
 
@@ -26,11 +25,11 @@
             position: relative;
             max-width: 200px;
             .name{
-                width: 100%;
+                width: 60%;
                 padding: 5px;
             }
             .logo{
-                width: 100%;
+                width: 35%;
             }
 
         }
