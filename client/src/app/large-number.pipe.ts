@@ -15,7 +15,7 @@ export class LargeNumberPipe implements PipeTransform {
         value = value.substr(1);
       }
       let parts = value.split(",");
-      let formatted = parts.length > 1 ? (Math.round(parseInt(parts.join(""), 10) / Math.pow(1000, parts.length-1)) + " " + ["אלף", "מליון", "מיליארד"][parts.length-2]) : parts[0];
+      let formatted = parts.length > 1 ? (Math.round(parseInt(parts.join(""), 10) / Math.pow(1000, parts.length-1)) + " " + ["אלף", "מיליון", "מיליארד"][parts.length-2]) : parts[0];
       return currency ? formatted + currency : formatted;
   }
 

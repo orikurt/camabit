@@ -9,9 +9,11 @@ import { Coin } from '../coin';
 })
 export class CoinsComponent implements OnInit {
 
-  coins: Coin[] = [];
+  coins: Coin[];
 
-  constructor(private coinService: CoinService, private zone: NgZone) { }
+  constructor(private coinService: CoinService, private zone: NgZone) { 
+    this.coins = [];
+  }
     
   ngOnInit() {
     this.coinService.coins.subscribe(coins => this.zone.run(()=>this.coins=coins));

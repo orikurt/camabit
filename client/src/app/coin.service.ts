@@ -11,17 +11,32 @@ export class CoinService {
   private coinsUrl = '/coins';
   private metaUrl = '/meta';
 
-  private _coins = new BehaviorSubject<Coin[]>([]);
-  public coins = this._coins.asObservable();
-
-  private _meta = new BehaviorSubject({});
-  public meta = this._meta.asObservable();  
+  private _coins: BehaviorSubject<Coin[]>;
+  private _meta: BehaviorSubject<{}>;
+  private dataStore: {
+    coins: Coin[],
+    meta: {}
+  };
   
   constructor( private http: HttpClient ) {
+    this.dataStore = { 
+      coins: [],
+      meta: {}
+    };
+    this._coins = <BehaviorSubject<Coin[]>>new BehaviorSubject([]);
+    this._meta = <BehaviorSubject<{}>>new BehaviorSubject([]);
     this.getCoins();
     this.getMeta();
   }
 
+  get coins(){
+    return this._coins.asObservable();
+  }
+
+  get meta(){
+    return this._meta.asObservable();
+  }
+  
   getCoins(): void{
     this.http.get<any>(this.coinsUrl).pipe(
       map(res => {
@@ -32,7 +47,10 @@ export class CoinService {
         });
         return res.coins;
       })
-    ).subscribe(coins => this._coins.next(coins.slice(0,100)));
+    ).subscribe(coins => {
+      this.dataStore.coins = coins;
+      this._coins.next(Object.assign({}, this.dataStore).coins);
+    });
   }
 
   getMeta(): void{
@@ -40,6 +58,9 @@ export class CoinService {
       map(res => {
         return JSON.parse(res.meta);
       })
-    ).subscribe(meta => this._meta.next(meta));
+    ).subscribe(meta => {
+      this.dataStore.meta = meta;
+      this._meta.next(meta);
+    });
   }
 }
