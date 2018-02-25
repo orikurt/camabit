@@ -32,7 +32,7 @@ export class CoinService {
         });
         return res.coins;
       })
-    ).subscribe(coins => this._coins.next(coins));
+    ).subscribe(coins => this._coins.next(coins.slice(0,100)));
   }
 
   getMeta(): void{
