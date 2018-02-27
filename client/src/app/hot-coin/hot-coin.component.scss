@@ -1,17 +1,21 @@
 .hot-coin{
-    display: flex;
-    flex-wrap: wrap;
-
-    .change{
-        direction: ltr;
-    }
-    .negative{
-        color: red;
-    }
-    .positive{
-        color: green;
-    }    
-    .change, .name{
-        padding: 5px;
+    display: table-row-group;
+    div{
+        display: table-row;
+        span{
+            display: table-cell;
+            &.change{
+                direction: ltr;
+            }
+            &.negative{
+                color: red;
+            }
+            &.positive{
+                color: green;
+            }    
+            &.change, &.name{
+                padding: 5px;
+            }        
+        }        
     }
 }

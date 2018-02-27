@@ -3,7 +3,16 @@
         search-bar{
             position: absolute;
             left: 15px;
-            margin-top: 20px;
+            margin-top: 35px;
         }
+    }
+    &.coin-table{
+        top-coins{
+            width: 80%;
+        }        
+        .hot-coin-section{
+            width: 20%;
+            cursor: pointer;
+        }        
     }
 }

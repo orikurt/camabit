@@ -2,11 +2,6 @@
 .cointainer{
     overflow: auto;
     height: 42vh;
-    .hot-coin-section{
-        position: absolute;
-        left: 125px;
-        cursor: pointer;
-    }    
     .coins-table{
         width: 80%;
         .tr{
@@ -14,12 +9,9 @@
                 padding: 10px;
                 .coin_details{
                     .name{
-                        width: 55%;
                         padding: 5px;
                     }
-                    .logo{
-                        width: 35%;
-                    }
+                    .logo{}
                 }
             }
         }        

@@ -1,57 +1,51 @@
 <div class="cointainer">
-  <div class="hot-coin-section">
-    <h3>חם עכשיו!</h3>
-    <hot-coin></hot-coin>
-  </div>  
-  <div class="coins-table-cointainer">
-    <div class="coins-table">
-      <div class="thead">
-        <div class="tr">
-          <div class="th rank"></div> 
-          <div class="th">מטבע</div>
-          <div class="th">מחיר</div>        
-          <div class="th">שעה</div>
-          <div class="th">24 שעות</div>
-          <div class="th">שבוע</div>
-          <div class="th">שווי שוק</div>
-          <div class="th">כמות מטבעות</div>
-          <div class="th">סה"כ מטבעות</div>
-          <div class="th">כמה יש לי?</div>
-          <div class="th">רווח/הפסד</div>
-        </div>
+  <div class="coins-table">
+    <div class="thead">
+      <div class="tr">
+        <div class="th rank"></div> 
+        <div class="th">מטבע</div>
+        <div class="th">מחיר</div>        
+        <div class="th">שעה</div>
+        <div class="th">24 שעות</div>
+        <div class="th">שבוע</div>
+        <div class="th">שווי שוק</div>
+        <div class="th">כמות מטבעות</div>
+        <div class="th">סה"כ מטבעות</div>
+        <div class="th">כמה יש לי?</div>
+        <div class="th">רווח/הפסד</div>
       </div>
-      <div class="tbody">
-        <div class="tr" *ngFor="let coin of coins">
-          <div class="td rank">{{coin.rank}}</div>
-          <div class="td">
-            <div class="coin_details">
-                <span class="logo"><img class="coin-icon" [src]="coin.image_url"></span>
-                <span class="name">{{ coin.name }}</span>
-            </div>
+    </div>
+    <div class="tbody">
+      <div class="tr" *ngFor="let coin of coins">
+        <div class="td rank">{{coin.rank}}</div>
+        <div class="td">
+          <div class="coin_details">
+              <span class="logo"><img class="coin-icon" [src]="coin.image_url"></span>
+              <span class="name">{{ coin.name }}</span>
           </div>
-          <div class="td">{{ coin.price_ils < 10 ? ( coin.price_ils | currency: "&#x20AA;":"symbol":"1.0-5" ) : ( coin.price_ils | currency: "&#x20AA;" ) }}</div>   
-          <div class="td">
-              <div class="change">
-                  <span [ngClass]="{'negative': coin.percent_change_1h < 0, 'positive': coin.percent_change_1h >= 0}">{{coin.percent_change_1h}}%</span>
-              </div>          
-            </div>
-          <div class="td">
+        </div>
+        <div class="td">{{ coin.price_ils < 10 ? ( coin.price_ils | currency: "&#x20AA;":"symbol":"1.0-5" ) : ( coin.price_ils | currency: "&#x20AA;" ) }}</div>   
+        <div class="td">
             <div class="change">
-                <span [ngClass]="{'negative': coin.percent_change_24h < 0, 'positive': coin.percent_change_24h >= 0}">{{coin.percent_change_24h}}%</span>
+                <span [ngClass]="{'negative': coin.percent_change_1h < 0, 'positive': coin.percent_change_1h >= 0}">{{coin.percent_change_1h}}%</span>
             </div>          
           </div>
-          <div class="td">
-              <div class="change">
-                  <span [ngClass]="{'negative': coin.percent_change_7d < 0, 'positive': coin.percent_change_7d >= 0}">{{coin.percent_change_7d}}%</span>
-              </div>          
-            </div>        
-          <div class="td">{{ coin.market_cap_ils | currency: "&#x20AA;" | largeNumber }}</div>        
-          <div class="td">{{ coin.total_supply | number | largeNumber }}</div>
-          <div class="td">{{ coin.max_supply | number | largeNumber }}</div>
-          <div class="td">?</div>
-          <div class="td">?</div>
-          </div>
+        <div class="td">
+          <div class="change">
+              <span [ngClass]="{'negative': coin.percent_change_24h < 0, 'positive': coin.percent_change_24h >= 0}">{{coin.percent_change_24h}}%</span>
+          </div>          
         </div>
-    </div>
+        <div class="td">
+            <div class="change">
+                <span [ngClass]="{'negative': coin.percent_change_7d < 0, 'positive': coin.percent_change_7d >= 0}">{{coin.percent_change_7d}}%</span>
+            </div>          
+          </div>        
+        <div class="td">{{ coin.market_cap_ils | currency: "&#x20AA;" | largeNumber }}</div>        
+        <div class="td">{{ coin.total_supply | number | largeNumber }}</div>
+        <div class="td">{{ coin.max_supply | number | largeNumber }}</div>
+        <div class="td">?</div>
+        <div class="td">?</div>
+        </div>
+      </div>
   </div>
 </div>  
