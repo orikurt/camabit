@@ -20,15 +20,22 @@
 }
 .cointainer{
     .coins-table{
-        table-layout: fixed;
-        border-collapse: collapse;
-
-        tr{
+        display: flex;
+        flex-wrap: wrap;
+        .thead, .tbody{
+            width: 100%;
+        }
+        .tr{
             cursor: pointer;
+            display: flex;
+            flex-wrap: wrap;
             border-bottom: 1px solid $app-color;
             border-left: 1px solid $app-color;
-            th, td{
+            width: 100%;
+            .th, .td{
                 text-align: center;
+                width: 10%;
+                max-width: 10%;                
                 .coin_details{
                     display: flex;
                     flex-wrap: wrap;

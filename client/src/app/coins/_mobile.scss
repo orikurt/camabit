@@ -7,10 +7,10 @@
         overflow-x: auto;        
         .coins-table{
             width: 100%;
-            tr{
+            .tr{
                 padding: 3px;
                 font-size: 14px;
-                th, td{
+                .th, .td{
                     width: 70px;
                     padding: 8px;
                     &.rank{

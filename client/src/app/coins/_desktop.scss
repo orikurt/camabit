@@ -8,8 +8,9 @@
         cursor: pointer;
     }    
     .coins-table{
-        tr{
-            th, td{
+        width: 80%;
+        .tr{
+            .th, .td{
                 padding: 10px;
                 .coin_details{
                     .name{
