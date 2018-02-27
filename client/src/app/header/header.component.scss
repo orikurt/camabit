@@ -50,12 +50,12 @@
 
 .header{
     color: $app-color;
-    background-color: ivory;
+    background-color: #fefefe;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;    
-    font-family: "crypton";
+    font-family: "Open sans hebrew";
     .logo {
         cursor: pointer;
         color: $app-color;
