@@ -55,23 +55,32 @@
     .header{
         width: 100%;
     }        
-}
 
-.top-section{
-    
-    app-meta{
-        width: 100%;
+    &.top-section{
+        
+        app-meta{
+            width: 100%;
+        }
+
     }
 
-    .action{
-        width: 100%;
-        a{
-            text-decoration: none;
-            font-weight: bold;
-            color: $app-color-secondary;
-        }            
+    &.coin-table{
+        border-top: none;
     }
 
+    &.all-coins{
+        .action{
+            width: 100%;
+            font-size: 24px;
+            margin-bottom: 0;
+            a{
+                text-decoration: none;
+                font-weight: bold;
+                color: $app-color-secondary;
+            }            
+        }   
+        .header{
+            margin-top: 10px;
+        } 
+    }
 }
-
-.coin-table{}
