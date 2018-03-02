@@ -40,11 +40,12 @@
                     min-width: 80px;
                     height:35px;
                     &.rank{
-                        min-width: 20px;
+                        min-width: 0px;
+                        max-width: 27px;
                         border-left: 1px solid $app-color;
                     }
                     &.details{
-                        max-width: 88px;
+                        max-width: 94px;
                         .name{
                             font-size: 12px;
                             overflow: hidden;

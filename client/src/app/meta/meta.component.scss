@@ -7,10 +7,10 @@
     @import 'desktop';
 }
 @media (min-width: 768px) and (max-width: 1024px) {
-    @import 'desktop';
+    // @import 'desktop';
 } 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    // @import 'mobile';
+    @import 'mobile';
 }
 @media (min-width: 481px) and (max-width: 767px) {
     @import 'mobile';

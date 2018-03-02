@@ -12,10 +12,10 @@
             display: table-row-group;
             .tr{
                 display: table-row;
-                height: 42px;
+                height: 64px;
                 &:nth-child(even){
-                    background-color: #fafafa;
-                  }                
+                    background-color: #fbfbfb;
+                }
                 .th, .td{
                     display: table-cell;
                     border-bottom: 1px solid $app-color;
