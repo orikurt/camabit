@@ -20,6 +20,11 @@
                     display: table-cell;
                     border-bottom: 1px solid $app-color;
                     padding: 5px;
+                    &.name{
+                        width: 100px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }                    
                 }
             }
         }    

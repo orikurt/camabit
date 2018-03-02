@@ -28,16 +28,6 @@
                     vertical-align: middle;
                     padding: 5px;
                     border-bottom: 1px solid $app-color;
-                    &.rank{}
-                    &.logo{
-                        .coin-icon{}
-                    }
-                    &.name{
-                        width: 100px;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                    }
-                    &.last{}
                     .change{
                         direction: ltr;
                         width: 100%;
