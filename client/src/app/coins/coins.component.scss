@@ -8,9 +8,6 @@
 }
 @media (min-width: 768px) and (max-width: 1024px) {
     @import 'desktop';
-} 
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    @import 'mobile';
 }
 @media (min-width: 481px) and (max-width: 767px) {
     @import 'mobile';
@@ -20,44 +17,42 @@
 }
 .cointainer{
     .coins-table{
-        display: table;
-        .thead{
-            display: table-header-group
-        }
-        .tbody{
-            display: table-row-group;
-        }
-        .tr{
-            cursor: pointer;
-            display: table-row;
-            border-bottom: 1px solid $app-color;
-            border-left: 1px solid $app-color;
-            .th, .td{
-                display: table-cell;
-                text-align: center;
-                min-width: 50px;
-                &.rank, &.logo{
-                    min-width: 0px;
-                    padding: 0;
-                    .coin-icon{
-                        position: relative;
-                        top: 10px;
+        .thead, .tbody{
+            .tr{
+                display: table-row;
+                cursor: pointer;
+                border-bottom: 1px solid $app-color;
+                .th, .td{
+                    display: table-cell;
+                    text-align: center;
+                    vertical-align: middle;
+                    padding: 5px;
+                    border-bottom: 1px solid $app-color;
+                    &.rank{}
+                    &.logo{
+                        .coin-icon{}
                     }
-                }
-                .change{
-                    direction: ltr;
-                    width: 100%;
-                    font-size: 14px;
-                    display: table;
-                    align-self: center;
-                    .negative{
-                        color: red;
+                    &.name{
+                        width: 100px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
                     }
-                    .positive{
-                        color: green;
-                    }                
-                }                        
-            }    
+                    &.last{}
+                    .change{
+                        direction: ltr;
+                        width: 100%;
+                        font-size: 14px;
+                        display: table;
+                        align-self: center;
+                        .negative{
+                            color: red;
+                        }
+                        .positive{
+                            color: green;
+                        }                
+                    }                        
+                }    
+            }                  
         }
     }
 }

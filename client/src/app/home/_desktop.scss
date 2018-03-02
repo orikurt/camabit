@@ -9,6 +9,8 @@
     &.coin-table{
         top-coins{
             width: 80%;
+            height: 50vh;
+            overflow: auto;
         }        
         .hot-coin-section{
             width: 20%;

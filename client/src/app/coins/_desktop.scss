@@ -1,13 +1,27 @@
 
 .cointainer{
+    width: 100%;
     overflow: auto;
-    height: 42vh;
     .coins-table{
-        width: 80%;
-        .tr{
-            .th, .td{
-                padding: 10px;
+        &.mobile-table{
+            display: none !important;
+        }                
+        display: table;
+        width: 100%;
+        .thead, .tbody{
+            display: table-row-group;
+            .tr{
+                display: table-row;
+                height: 42px;
+                &:nth-child(even){
+                    background-color: #fafafa;
+                  }                
+                .th, .td{
+                    display: table-cell;
+                    border-bottom: 1px solid $app-color;
+                    padding: 5px;
+                }
             }
-        }        
+        }    
     }
 }
