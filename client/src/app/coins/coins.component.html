@@ -1,4 +1,15 @@
 <div class="cointainer">
+  <div class="navigation">
+    <button (click)="nextPage()">
+      <span>עמוד הבא</span>
+      <i class="material-icons">chevron_left</i>
+    </button>
+    <button class="current">{{currentPage}}</button>
+    <button (click)="previousPage()" *ngIf="currentPage > 1">
+      <i class="material-icons">chevron_right</i>
+      <span>עמוד קודם</span>
+    </button>
+  </div>
   <div class="coins-table mobile-table">
     <div class="tbody">
       <div class="fixed-wrapper">

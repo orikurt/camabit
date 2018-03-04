@@ -10,18 +10,33 @@ import { Coin } from '../coin';
 export class CoinsComponent implements OnInit {
 
   coins: Coin[];
+  currentPage;
   disposable;
 
   constructor(private coinService: CoinService, private zone: NgZone) { 
     this.coins = [];
+    this.currentPage = 1;
   }
     
   ngOnInit() {
     this.disposable = this.coinService.coins.subscribe(coins => {
-      this.zone.run(()=>this.coins = this.coinService.page(1));
+      
+      this.page(1);
+
       if(this.disposable && this.coins.length){
         this.disposable.unsubscribe();
       }
     });
   }
+
+  page(num){
+    this.zone.run(()=>this.coins = this.coinService.page(num));    
+  }
+
+  nextPage(){
+    this.zone.run(()=>this.coins = this.coinService.page(++this.currentPage));
+  }
+  previousPage(){
+    this.zone.run(()=>this.coins = this.coinService.page(--this.currentPage));
+  }  
 }

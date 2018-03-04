@@ -19,6 +19,18 @@
     @import 'mobile';
 }
 .cointainer{
+    .navigation{
+        width: 100%;
+        button{
+            float: left;
+            cursor: pointer;
+            color: $app-color;
+            &.current{
+                cursor: default;
+                border: none;
+            }
+        }
+    }
     .coins-table{
         .thead, .tbody{
             .tr{

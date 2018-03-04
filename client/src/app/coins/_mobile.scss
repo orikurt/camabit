@@ -1,4 +1,23 @@
 .cointainer{
+    .navigation{
+        button{
+            width: 42px;
+            height: 32px;
+            font-size: 14px;
+            margin:0px;
+            &.current{
+                width: 21px;
+                margin: 0px 5px;
+            }
+            span{
+                display: none;
+            }
+            i{
+                position: relative;
+                top: 1px;
+            }
+        }
+    }    
     .coins-table{
         &.desktop-table{
             display: none !important;

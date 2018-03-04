@@ -57,6 +57,7 @@ export class CoinService {
         });
         return res.coins;
       })
+      , map(coins => coins.sort((coina, coinb) => { return parseInt(coina.rank) - parseInt(coinb.rank); }))
     ).subscribe(coins => {
       this.dataStore.coins = coins;
       for (let i=0; i<this.dataStore.coins.length; i+=10){
