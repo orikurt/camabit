@@ -53,7 +53,7 @@
     display: flex;
     flex-wrap: wrap;        
     .header{
-        width: 80%;
+        width: 100%;
     }        
 
     &.top-section{
@@ -66,6 +66,10 @@
 
     &.coin-table{
         border-top: none;
+        .header{
+            width: 80%;
+        }                
+
         app-spinner{
             margin-top: 10%;
         }

@@ -25,6 +25,7 @@
             float: left;
             cursor: pointer;
             color: $app-color;
+            background-color: white;
             &.current{
                 cursor: default;
                 border: none;
