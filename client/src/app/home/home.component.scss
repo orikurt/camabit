@@ -66,6 +66,9 @@
 
     &.coin-table{
         border-top: none;
+        app-spinner{
+            margin-top: 10%;
+        }
     }
 
     &.all-coins{

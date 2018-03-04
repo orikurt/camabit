@@ -4,8 +4,9 @@
       <search-bar></search-bar>
   </div>
   <div class="section coin-table">
-    <h3 class="header">מטבעות מובילים</h3>    
-    <top-coins></top-coins>
+    <h3 class="header">מטבעות מובילים</h3>
+    <app-spinner *ngIf="!coins.length"></app-spinner>    
+    <top-coins *ngIf="coins.length"></top-coins>
     <div class="hot-coin-section">
       <h3>חם עכשיו!</h3>
       <hot-coin></hot-coin>

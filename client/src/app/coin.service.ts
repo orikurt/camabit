@@ -10,6 +10,7 @@ export class CoinService {
 
   private coinsUrl = '/coins';
   private metaUrl = '/meta';
+  private PAGE_SIZE = 100;
 
   private _coins: BehaviorSubject<Coin[]>;
   private _meta: BehaviorSubject<{}>;
@@ -37,6 +38,15 @@ export class CoinService {
     return this._meta.asObservable();
   }
   
+  page(num){
+    let start = this.PAGE_SIZE*(num-1);
+    return this.dataStore.coins.slice(start, start+this.PAGE_SIZE);
+  }
+
+  all(){
+    return this.dataStore.coins;    
+  }
+
   getCoins(): void{
     this.http.get<any>(this.coinsUrl).pipe(
       map(res => {
@@ -48,8 +58,9 @@ export class CoinService {
         return res.coins;
       })
     ).subscribe(coins => {
+      //this.dataStore.coins = coins.sort((a, b)=>{return parseInt(b.rank) - parseInt(a.rank);});
       this.dataStore.coins = coins;
-      this._coins.next(Object.assign({}, this.dataStore).coins);
+      this._coins.next(null);
     });
   }
 

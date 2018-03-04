@@ -12,6 +12,7 @@ import { HotCoinComponent } from './hot-coin/hot-coin.component';
 import { HomeComponent } from './home/home.component';
 import { AllCoinsComponent } from './all-coins/all-coins.component';
 import { LargeNumberPipe } from './large-number.pipe';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LargeNumberPipe } from './large-number.pipe';
     HotCoinComponent,
     HomeComponent,
     AllCoinsComponent,
-    LargeNumberPipe
+    LargeNumberPipe,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

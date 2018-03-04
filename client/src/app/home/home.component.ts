@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CoinService } from '../coin.service';
+import { Coin } from '../coin';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  coins: Coin[];
 
-  constructor() { }
+  constructor(private coinService: CoinService) {
+    this.coins = [];
+  }
 
   ngOnInit() {
+    this.coinService.coins.subscribe(coins => {
+      this.coins = this.coinService.page(1);
+    });
   }
 
 }

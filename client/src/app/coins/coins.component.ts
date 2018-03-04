@@ -16,6 +16,8 @@ export class CoinsComponent implements OnInit {
   }
     
   ngOnInit() {
-    this.coinService.coins.subscribe(coins => this.zone.run(()=>this.coins=coins));
+    this.coinService.coins.subscribe(coins => {
+      this.zone.run(()=>this.coins = this.coinService.page(1));
+    });
   }
 }

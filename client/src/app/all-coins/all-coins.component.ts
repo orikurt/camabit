@@ -13,7 +13,9 @@ export class AllCoinsComponent implements OnInit {
   constructor(private coinService: CoinService) { }
 
   ngOnInit() {
-    this.coinService.coins.subscribe(coins => this.allCoins = coins);
+    this.coinService.coins.subscribe(coins => {
+      this.allCoins = this.coinService.all();
+    });
   }
 
 }
