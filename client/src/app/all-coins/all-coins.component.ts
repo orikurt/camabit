@@ -9,12 +9,14 @@ import { Coin } from '../coin';
 })
 export class AllCoinsComponent implements OnInit {
 
-  allCoins: Coin[] = [];
-  constructor(private coinService: CoinService) { }
+  allCoins: Coin[];
+  constructor(private coinService: CoinService) { 
+    this.allCoins = [];
+  }
 
   ngOnInit() {
     this.coinService.coins.subscribe(coins => {
-      this.allCoins = this.coinService.all();
+      this.allCoins = this.allCoins.concat(coins);
     });
   }
 

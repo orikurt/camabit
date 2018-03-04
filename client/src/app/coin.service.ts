@@ -59,7 +59,9 @@ export class CoinService {
       })
     ).subscribe(coins => {
       this.dataStore.coins = coins;
-      this._coins.next(null);
+      for (let i=0; i<this.dataStore.coins.length; i+=10){
+        this._coins.next(this.dataStore.coins.slice(i*10, i*10+10));
+      }
     });
   }
 
