@@ -1,0 +1,23 @@
+.navigation {
+    width: 100%;
+    display: flex;
+    height: auto !important;
+    &.mobile{
+        display: none;
+    }
+    ul{
+        display: flex;
+        li{
+            padding: 5px;
+            min-width: 80px;
+            display: inline;
+            font-size: 14px;
+            label{
+                cursor: pointer;
+                &:hover{
+                    font-weight: bold;
+                }                       
+            }
+        }       
+    } 
+}

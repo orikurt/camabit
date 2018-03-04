@@ -4,19 +4,15 @@
     }
 
     .logo {
+        cursor: pointer;
         width: 15%;
+        h1{}
+        span{
+            color: $app-color-secondary;
+            font-size: 12px;
+        }       
     }
     
-    .navigation {
-        width: 70%;
-        
-        span{
-            padding: 5px;
-            min-width: 100px;
-            display: inline-block;
-        }        
-    }
-
     .account {
         cursor: pointer;
         width: 15%;

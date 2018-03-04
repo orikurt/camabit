@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -13,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { AllCoinsComponent } from './all-coins/all-coins.component';
 import { LargeNumberPipe } from './large-number.pipe';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +27,13 @@ import { SpinnerComponent } from './spinner/spinner.component';
     HomeComponent,
     AllCoinsComponent,
     LargeNumberPipe,
-    SpinnerComponent
+    SpinnerComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [CoinService],
   bootstrap: [AppComponent]

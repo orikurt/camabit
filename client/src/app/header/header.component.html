@@ -3,14 +3,12 @@
         <h1>קריפטון</h1>
         <span>כוכב המטבעות של ישראל</span>
     </div>
-    <div class="navigation">
-        <span *ngFor="let nav of nav_bar">{{ nav.name }}</span>
-    </div>
+    <div class="hamburger" (click)="toggleMenu()">
+            <i class="material-icons">menu</i>
+        </div>    
+    <app-nav [menuState]="menuState"></app-nav>
     <div class="account">
         <span>החשבון שלי</span>
         <i class="material-icons">account_circle</i>
-    </div>
-    <div class="hamburger">
-        <i class="material-icons">menu</i>
     </div>
 </div>

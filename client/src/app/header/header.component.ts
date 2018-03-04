@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  nav_bar = [{name: "עמוד הבית"}, {name: "התיק שלי"}, {name: "מאמרים"}, {name: "תיקים של אחרים"}, {name: "קנה ביט"}, {name: "קנה אלטים"}, {name: "מה זה ביטקוין?"}, {name: "מי אנחנו"}];
+  menuState:string;
+  constructor(){
+    this.menuState = "in";
+  }
+  toggleMenu(){
+    this.menuState = this.menuState == "in" ? "out" : "in";
+  }
 }

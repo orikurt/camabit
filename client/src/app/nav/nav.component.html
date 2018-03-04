@@ -1,0 +1,10 @@
+<div class="navigation mobile" [@slideInOut]="menuState" (click)="toggle()">
+    <ul>
+        <li *ngFor="let nav of nav_bar"><label>{{ nav.name }}</label></li>
+    </ul>
+</div>
+<div class="navigation desktop">
+    <ul>
+        <li *ngFor="let nav of nav_bar"><label>{{ nav.name }}</label></li>
+    </ul>
+</div>
