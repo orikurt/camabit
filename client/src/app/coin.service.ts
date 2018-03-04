@@ -58,7 +58,6 @@ export class CoinService {
         return res.coins;
       })
     ).subscribe(coins => {
-      //this.dataStore.coins = coins.sort((a, b)=>{return parseInt(b.rank) - parseInt(a.rank);});
       this.dataStore.coins = coins;
       this._coins.next(null);
     });
