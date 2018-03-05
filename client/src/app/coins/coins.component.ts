@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, NgZone } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { CoinService } from '../coin.service';
 import { Coin } from '../coin';
 
@@ -14,12 +14,13 @@ export class CoinsComponent implements OnInit {
   currentPage;
   disposable;
 
-  constructor(private coinService: CoinService, private zone: NgZone) { 
+  constructor(private coinService: CoinService, private cdr: ChangeDetectorRef) { 
     this.coins = [];
     this.currentPage = 1;
   }
     
   ngOnInit() {
+    this.cdr.detach();
     this.disposable = this.coinService.coins.subscribe(coins => {
       
       this.page(1);
@@ -31,14 +32,15 @@ export class CoinsComponent implements OnInit {
   }
 
   page(num){
-    this.zone.run(()=>this.coins = this.coinService.page(num));    
+    this.coins = this.coinService.page(num);
+    this.cdr.detectChanges();
   }
 
   nextPage(){
-    this.zone.run(()=>this.coins = this.coinService.page(++this.currentPage));
+    this.page(++this.currentPage);
   }
   previousPage(){
-    this.zone.run(()=>this.coins = this.coinService.page(--this.currentPage));
+    this.page(--this.currentPage);
   }  
 
   trackFunc(index, item){
