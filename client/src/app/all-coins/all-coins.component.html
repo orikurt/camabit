@@ -1,5 +1,5 @@
 <div class="all-cointainer">
-  <span class="coin" *ngFor="let coin of allCoins">
+  <span class="coin" *ngFor="let coin of allCoins; trackBy: trackFunc">
     <img class="coin-icon" [src]="coin.image_url">
   </span>
 </div>

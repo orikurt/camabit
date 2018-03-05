@@ -1,11 +1,12 @@
-import { Component, OnInit, ApplicationRef, NgZone } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, NgZone } from '@angular/core';
 import { CoinService } from '../coin.service';
 import { Coin } from '../coin';
 
 @Component({
   selector: 'top-coins',
   templateUrl: './coins.component.html',
-  styleUrls: ['./coins.component.scss']
+  styleUrls: ['./coins.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CoinsComponent implements OnInit {
 
@@ -38,5 +39,9 @@ export class CoinsComponent implements OnInit {
   }
   previousPage(){
     this.zone.run(()=>this.coins = this.coinService.page(--this.currentPage));
+  }  
+
+  trackFunc(index, item){
+    return item.id;
   }  
 }

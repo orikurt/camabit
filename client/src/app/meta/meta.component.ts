@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { CoinService } from '../coin.service'
 
 @Component({
   selector: 'app-meta',
   templateUrl: './meta.component.html',
-  styleUrls: ['./meta.component.scss']
+  styleUrls: ['./meta.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MetaComponent implements OnInit {
   meta: any = {};
 
-  constructor(private coinService:CoinService) { }
+  constructor(private coinService:CoinService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
+    this.cdr.detach();
     this.coinService.meta.subscribe(meta => {
       this.meta = meta;
+      this.cdr.detectChanges();
     });
   }
 
