@@ -23,4 +23,12 @@
             cursor: pointer;
         }        
     }
+    &.all-coins{
+        all-coins{
+            ::ng-deep  .all-cointainer{
+                height: 42vh;
+                overflow: auto;
+            }
+        }
+    }
 }

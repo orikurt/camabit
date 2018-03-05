@@ -13,6 +13,7 @@ export class CoinService {
   private PAGE_SIZE = 100;
 
   private _coins: BehaviorSubject<Coin[]>;
+  private _pages: BehaviorSubject<Coin[]>;
   private _meta: BehaviorSubject<{}>;
   private dataStore: {
     coins: Coin[],
@@ -25,6 +26,7 @@ export class CoinService {
       meta: {}
     };
     this._coins = <BehaviorSubject<Coin[]>>new BehaviorSubject([]);
+    this._pages = <BehaviorSubject<Coin[]>>new BehaviorSubject([]);
     this._meta = <BehaviorSubject<{}>>new BehaviorSubject([]);
     this.getCoins();
     this.getMeta();
@@ -34,14 +36,28 @@ export class CoinService {
     return this._coins.asObservable();
   }
 
+  get pages(){
+    return this._pages.asObservable();
+  }
+
   get meta(){
     return this._meta.asObservable();
   }
   
   page(num){
     let start = this.PAGE_SIZE*(num-1);
-    return this.dataStore.coins.slice(start, start+this.PAGE_SIZE);
+    let coinsChunk = this.dataStore.coins.slice(start, start+this.PAGE_SIZE);
+    this._pages.next(coinsChunk);
   }
+
+  pageSubscription(num){
+    let start = this.PAGE_SIZE*(num-1);
+    let coinsChunk = this.dataStore.coins.slice(start, start+this.PAGE_SIZE);
+    return new Observable((observer)=>{
+      observer.next(coinsChunk);
+      observer.complete();
+    });
+  }  
 
   hot(){
     return this.dataStore.coins.concat().sort((coina, coinb) => { return coina.percent_change_24h - coinb.percent_change_24h; }).reverse()[0];
@@ -64,13 +80,14 @@ export class CoinService {
       , map(coins => coins.sort((coina, coinb) => { return parseInt(coina.rank) - parseInt(coinb.rank); }))
     ).subscribe(coins => {
       this.dataStore.coins = coins;
-      for (let i=0; i<this.dataStore.coins.length; i+=10){
-        ((i)=>{
-          setTimeout(()=>{
-            this._coins.next(this.dataStore.coins.slice(i, i+10));
-          }, i);
-        })(i);
-      }
+      // for (let i=0; i<this.dataStore.coins.length; i+=10){
+      //   ((i)=>{
+      //     setTimeout(()=>{
+      //       this._coins.next(this.dataStore.coins.slice(i, i+10));
+      //     }, i);
+      //   })(i);
+      // }
+      this._coins.next(this.dataStore.coins.slice(0, this.PAGE_SIZE));
     });
   }
 

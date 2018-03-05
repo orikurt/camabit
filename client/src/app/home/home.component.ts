@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.cdr.detach();
     this.disposable = this.coinService.coins.subscribe(coins => {
-      this.coins = coins;
+      this.coins = [this.coinService.hot()];
       this.cdr.detectChanges();
       if(this.disposable && this.coins.length){
         this.disposable.unsubscribe();

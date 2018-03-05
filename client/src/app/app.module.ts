@@ -15,6 +15,7 @@ import { AllCoinsComponent } from './all-coins/all-coins.component';
 import { LargeNumberPipe } from './large-number.pipe';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { NavComponent } from './nav/nav.component';
+import { InfiniteScrollerDirective } from './infinite-scroller.directive';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NavComponent } from './nav/nav.component';
     AllCoinsComponent,
     LargeNumberPipe,
     SpinnerComponent,
-    NavComponent
+    NavComponent,
+    InfiniteScrollerDirective
   ],
   imports: [
     BrowserModule,

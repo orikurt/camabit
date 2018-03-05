@@ -23,7 +23,8 @@ export class CoinsComponent implements OnInit {
     this.cdr.detach();
     this.disposable = this.coinService.coins.subscribe(coins => {
       
-      this.page(1);
+      this.coinService.pages.subscribe(this.handlePage);
+      this.page(this.currentPage);
 
       if(this.disposable && this.coins.length){
         this.disposable.unsubscribe();
@@ -31,9 +32,13 @@ export class CoinsComponent implements OnInit {
     });
   }
 
-  page(num){
-    this.coins = this.coinService.page(num);
+  private handlePage = (coins) => {
+    this.coins = coins;
     this.cdr.detectChanges();
+  }
+
+  page(num){
+    this.coinService.page(num);
   }
 
   nextPage(){
