@@ -43,6 +43,10 @@ export class CoinService {
     return this.dataStore.coins.slice(start, start+this.PAGE_SIZE);
   }
 
+  hot(){
+    return this.dataStore.coins.concat().sort((coina, coinb) => { return coina.percent_change_24h - coinb.percent_change_24h; }).reverse()[0];
+  }
+
   all(){
     return this.dataStore.coins;    
   }

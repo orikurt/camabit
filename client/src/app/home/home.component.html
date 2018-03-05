@@ -1,6 +1,15 @@
 <div class="content-view">
   <div class="section top-section">
-      <app-meta></app-meta>
+      <div class="mobile-meta" [@toggleMenu]="metaState">
+        <div class="meta-toggle">
+            <i class="material-icons" (click)="toggleMeta()" *ngIf="metaState === 'down'">expand_more</i>
+            <i class="material-icons" (click)="toggleMeta()" *ngIf="metaState === 'up'">expand_less</i>
+        </div>            
+        <app-meta></app-meta>
+      </div>      
+      <div class="desktop-meta">
+          <app-meta></app-meta>
+      </div>
       <search-bar></search-bar>
   </div>
   <div class="section coin-table">

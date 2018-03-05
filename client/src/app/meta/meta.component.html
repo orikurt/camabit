@@ -1,10 +1,6 @@
 <div class="meta">
   <ul>
     <li>
-      <span class="field">מטבעות</span>
-      <span class="value">{{ meta.active_assets + meta.active_currencies }}</span>
-    </li>
-    <li class="show-mobile">
       <span class="field">שווי שוק</span>
       <span class="value">{{ meta.total_market_cap_ils | currency: "&#x20AA;" }}</span>
     </li>
@@ -20,5 +16,9 @@
       <span class="field">עדכון אחרון</span>
       <span class="value last">{{ meta.last_updated*1000 | date:'short' }}</span>
     </li>
+    <li>
+      <span class="field">מטבעות</span>
+      <span class="value">{{ meta.active_assets + meta.active_currencies }}</span>
+    </li>    
   </ul>
 </div>

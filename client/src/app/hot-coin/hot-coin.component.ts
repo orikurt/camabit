@@ -15,8 +15,7 @@ export class HotCoinComponent implements OnInit {
   }
   ngOnInit() {
     this.disposable = this.coinService.coins.subscribe(coins => {
-      let coinsCopy = this.coinService.all().concat();
-      this.hotCoin = coinsCopy.sort((coina, coinb) => { return coina.percent_change_24h - coinb.percent_change_24h; }).reverse()[0];
+      this.hotCoin = this.coinService.hot();
       if(this.disposable && this.hotCoin){
         this.disposable.unsubscribe();
       }

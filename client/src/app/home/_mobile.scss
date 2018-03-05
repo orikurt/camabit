@@ -2,7 +2,20 @@
     &.top-section{
         search-bar{
             display: none;
-        }    
+        }
+        .desktop-meta{
+            display: none;
+        }
+        .mobile-meta{
+            display: flex;
+            height: 42px;
+            overflow: hidden;            
+            .meta-toggle{
+                position: absolute;
+                padding-top: 12px;
+            }
+        }            
+
     }
     &.coin-table{
         .header{
