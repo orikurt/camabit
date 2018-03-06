@@ -3,6 +3,7 @@
   scrollPerecnt="90"
   immediateCallback="true"
 [scrollCallback]="scrollCallback">
+  <h3 class="header">כל המטבעות</h3>
   <span class="coin" *ngFor="let coin of allCoins; trackBy: trackFunc">
     <img class="coin-icon" [src]="coin.image_url">
   </span>

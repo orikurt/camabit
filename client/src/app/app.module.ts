@@ -16,6 +16,7 @@ import { LargeNumberPipe } from './large-number.pipe';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { NavComponent } from './nav/nav.component';
 import { InfiniteScrollerDirective } from './infinite-scroller.directive';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { InfiniteScrollerDirective } from './infinite-scroller.directive';
   imports: [
     BrowserModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule
   ],
   providers: [CoinService],
   bootstrap: [AppComponent]

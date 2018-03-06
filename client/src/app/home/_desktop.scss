@@ -1,33 +1,38 @@
-.section{
-    &.top-section{
-        search-bar{
-            position: absolute;
-            left: 15px;
-            margin-top: 35px;
+.content-view{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    .section{
+        width: 100%;
+        &.top-section{
+            search-bar{
+                position: absolute;
+                left: 15px;
+                margin-top: 35px;
+            }
+            .mobile-meta{
+                display: none;
+            }        
+            .desktop-meta{
+                width: 100%;
+            }        
         }
-        .mobile-meta{
-            display: none;
-        }        
-        .desktop-meta{
-            width: 100%;
-        }        
-    }
-    &.coin-table{
-        top-coins, app-spinner{
-            width: 80%;
-            height: 50vh;
-            overflow: auto;
-        }        
-        .hot-coin-section{
-            width: 20%;
-            cursor: pointer;
-        }        
-    }
-    &.all-coins{
-        all-coins{
-            ::ng-deep  .all-cointainer{
-                height: 42vh;
+        &.coin-table{
+            height: auto;
+            overflow: hidden;
+            top-coins, app-spinner{
+                width: 80%;
                 overflow: auto;
+            }        
+            .hot-coin-section{
+                width: 20%;
+                cursor: pointer;
+            }        
+        }
+        &.all-coins{
+            .action{
+                width: 100%;
+                margin: 0;
             }
         }
     }
