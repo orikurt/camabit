@@ -1,8 +1,12 @@
-@import '../styles.scss';
+@import '../../styles.scss';
 
-.app-container{
-    direction: rtl;
-    color: $app-color;
+.container{
+    border-top: 1px solid $app-color;
+    a{
+        text-decoration: none;
+        font-weight: bold;
+        color: $app-color-secondary;
+    }            
 }
 
 @media (min-width: 1281px) {

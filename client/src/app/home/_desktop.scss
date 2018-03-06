@@ -5,16 +5,19 @@
     .section{
         width: 100%;
         &.top-section{
+            display: flex;
+            flex-wrap: wrap;
             search-bar{
-                position: absolute;
-                left: 15px;
-                margin-top: 35px;
+                // position: absolute;
+                // left: 15px;
+                // margin-top: 35px;
+                width: 20%;
             }
             .mobile-meta{
                 display: none;
             }        
             .desktop-meta{
-                width: 100%;
+                width: 80%;
             }        
         }
         &.coin-table{
@@ -24,16 +27,14 @@
                 width: 80%;
                 overflow: auto;
             }        
+            top-coins{
+                position: relative;
+                bottom: 60px;
+            }
             .hot-coin-section{
                 width: 20%;
                 cursor: pointer;
             }        
-        }
-        &.all-coins{
-            .action{
-                width: 100%;
-                margin: 0;
-            }
         }
     }
 }

@@ -17,6 +17,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { NavComponent } from './nav/nav.component';
 import { InfiniteScrollerDirective } from './infinite-scroller.directive';
 import { AppRoutingModule } from './/app-routing.module';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AppRoutingModule } from './/app-routing.module';
     LargeNumberPipe,
     SpinnerComponent,
     NavComponent,
-    InfiniteScrollerDirective
+    InfiniteScrollerDirective,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
