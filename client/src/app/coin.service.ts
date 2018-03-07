@@ -87,7 +87,7 @@ export class CoinService {
       //     }, i);
       //   })(i);
       // }
-      this._coins.next(this.dataStore.coins.slice(0, this.PAGE_SIZE));
+      this._coins.next(this.dataStore.coins.slice(0, this.PAGE_SIZE*3));
     });
   }
 

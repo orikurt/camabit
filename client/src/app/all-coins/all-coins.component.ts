@@ -33,12 +33,10 @@ export class AllCoinsComponent implements OnInit {
   }
 
   moreCoins() {
-    console.log("morecoins", this.currentPage, this.allCoins.length);
     return this.coinService.pageSubscription(++this.currentPage).do(this.handlePage);
   }
 
   private handlePage = (coins) => {
-    console.log("handle page", coins);
     this.allCoins = this.allCoins.concat(coins);
     this.cdr.detectChanges();
   }

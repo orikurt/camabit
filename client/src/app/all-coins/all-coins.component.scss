@@ -1,6 +1,22 @@
-.coin{
-    img{
-        cursor: pointer;
-        margin: 15px;
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    .header{
+        width: 100%;
+        height: 25px;
+    }
+    .all-cointainer{
+        flex: 1;
+        overflow: auto;
+        .coin{
+            img{
+                cursor: pointer;
+                margin: 10px;
+            }
+        }
+    }
+    .footer{
+        height: 2px;
     }
 }
