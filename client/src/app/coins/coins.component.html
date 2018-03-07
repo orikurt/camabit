@@ -4,13 +4,15 @@
       <span>עמוד הבא</span>
       <i class="material-icons">chevron_left</i>
     </button>
-    <button class="current">{{currentPage}}</button>
+    <button class="current">
+      <span>{{currentPage}}</span>
+    </button>
     <button (click)="previousPage()" *ngIf="currentPage > 1">
       <i class="material-icons">chevron_right</i>
       <span>עמוד קודם</span>
     </button>
   </div>
-  <div class="coins-table mobile-table">
+  <div class="coins-table mobile-table" *ngIf="coins.length">
     <div class="tbody">
       <div class="fixed-wrapper">
         <div class="fixed">
@@ -30,17 +32,17 @@
       <div class="scrolls-wrapper">
         <div class="scrolls">
           <div class="tr header">    
-              <div class="th">מחיר</div>        
-              <div class="th">שעה</div>
-              <div class="th">24 שעות</div>
-              <div class="th">שבוע</div>
-              <div class="th">שווי שוק</div>
-              <div class="th">כמות מטבעות</div>
-              <div class="th">סה"כ מטבעות</div>
-              <div class="th">כמה יש לי?</div>
-              <div class="th last">רווח/הפסד</div>
-            </div>          
-          <div class="tr" *ngFor="let coin of coins; trackBy: trackFunc">    
+            <div class="th">מחיר</div>        
+            <div class="th">שעה</div>
+            <div class="th">24 שעות</div>
+            <div class="th">שבוע</div>
+            <div class="th">שווי שוק</div>
+            <div class="th">כמות מטבעות</div>
+            <div class="th">סה"כ מטבעות</div>
+            <div class="th">כמה יש לי?</div>
+            <div class="th last">רווח/הפסד</div>
+          </div>          
+          <div class="tr" *ngFor="let coin of coins; trackBy: trackFunc">
             <div class="td"> 
               {{ coin.price_ils < 10 ? ( coin.price_ils | currency: "&#x20AA;":"symbol":"1.0-5" ) : ( coin.price_ils | currency: "&#x20AA;" ) }}
             </div>   
@@ -87,7 +89,7 @@
           <div class="th last">רווח/הפסד</div>          
         </div>
       </div>
-      <div class="tbody">
+      <div class="tbody" *ngIf="coins.length">
         <div class="tr" *ngFor="let coin of coins; trackBy: trackFunc">
           <div class="td rank">{{coin.rank}}</div>
           <div class="td logo"><img class="coin-icon" [src]="coin.image_url"></div>
@@ -118,4 +120,5 @@
         </div>
       </div>
     </div>  
+    <app-spinner *ngIf="!coins.length"></app-spinner>
 </div>  

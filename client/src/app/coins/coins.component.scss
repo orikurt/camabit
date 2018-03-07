@@ -20,9 +20,9 @@
 }
 .cointainer{
     .navigation{
-        width: 100%;
+        direction: ltr;
+        text-align: left;        
         button{
-            float: left;
             cursor: pointer;
             color: $app-color;
             background-color: white;

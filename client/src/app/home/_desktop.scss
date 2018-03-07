@@ -23,13 +23,15 @@
         &.coin-table{
             height: auto;
             overflow: hidden;
-            top-coins, app-spinner{
+            section{
                 width: 80%;
-                overflow: auto;
-            }        
-            top-coins{
-                position: relative;
-                bottom: 60px;
+                top-coins{
+                    overflow: auto;
+                }        
+                top-coins{
+                    position: relative;
+                    bottom: 55px;
+                }                
             }
             .hot-coin-section{
                 width: 20%;
