@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { CoinService } from '../coin.service'
 import { Coin } from '../coin';
 
@@ -8,7 +8,7 @@ import { Coin } from '../coin';
   styleUrls: ['./all-coins.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AllCoinsComponent implements OnInit {
+export class AllCoinsComponent implements OnInit, OnDestroy {
 
   allCoins: Coin[];
   currentPage: number = 0;
@@ -30,6 +30,10 @@ export class AllCoinsComponent implements OnInit {
         this.disposable.unsubscribe();
       }
     });
+  }
+
+  ngOnDestroy(){
+
   }
 
   moreCoins() {

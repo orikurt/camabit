@@ -1,6 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { CoinService } from '../coin.service';
 import { Coin } from '../coin';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'top-coins',
@@ -8,11 +9,12 @@ import { Coin } from '../coin';
   styleUrls: ['./coins.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CoinsComponent implements OnInit {
+export class CoinsComponent implements OnInit, OnDestroy{
 
   coins: Coin[];
   currentPage;
   disposable;
+  pagesSubscription;
 
   constructor(private coinService: CoinService, private cdr: ChangeDetectorRef) { 
     this.coins = [];
@@ -22,14 +24,18 @@ export class CoinsComponent implements OnInit {
   ngOnInit() {
     this.cdr.detach();
     this.disposable = this.coinService.coins.subscribe(coins => {
-      
-      this.coinService.pages.subscribe(this.handlePage);
+      this.pagesSubscription ? this.pagesSubscription.unsubscribe() : null;
+      this.pagesSubscription = this.coinService.pages.subscribe(this.handlePage);
       this.page(this.currentPage);
 
       if(this.disposable && this.coins.length){
         this.disposable.unsubscribe();
       }
     });
+  }
+
+  ngOnDestroy(){
+    this.pagesSubscription.unsubscribe();
   }
 
   private handlePage = (coins) => {

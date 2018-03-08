@@ -22,5 +22,10 @@
     ul{
         width: 100%;
         padding: 0;
+        li{
+            .active{
+                font-weight: bold;
+            }
+        }
     }        
 }

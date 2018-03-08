@@ -8,9 +8,8 @@
             display: flex;
             flex-wrap: wrap;
             search-bar{
-                // position: absolute;
-                // left: 15px;
-                // margin-top: 35px;
+                position: absolute;
+                left: 0;
                 width: 20%;
             }
             .mobile-meta{
@@ -36,6 +35,8 @@
             .hot-coin-section{
                 width: 20%;
                 cursor: pointer;
+                position: absolute;
+                left: 0;
             }        
         }
     }

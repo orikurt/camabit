@@ -9,14 +9,18 @@ import { CoinService } from '../coin.service'
 })
 export class MetaComponent implements OnInit {
   meta: any = {};
+  disposable;
 
   constructor(private coinService:CoinService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.cdr.detach();
-    this.coinService.meta.subscribe(meta => {
+    this.disposable = this.coinService.meta.subscribe(meta => {
       this.meta = meta;
       this.cdr.detectChanges();
+      if(this.disposable && Object.keys(this.meta).length){
+        this.disposable.unsubscribe();
+      }
     });
   }
 

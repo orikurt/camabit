@@ -18,6 +18,7 @@ import { NavComponent } from './nav/nav.component';
 import { InfiniteScrollerDirective } from './infinite-scroller.directive';
 import { AppRoutingModule } from './/app-routing.module';
 import { FooterComponent } from './footer/footer.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FooterComponent } from './footer/footer.component';
     SpinnerComponent,
     NavComponent,
     InfiniteScrollerDirective,
-    FooterComponent
+    FooterComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

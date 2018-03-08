@@ -1,10 +1,14 @@
 <div class="navigation mobile" [@slideInOut]="menuState" (click)="toggle()">
     <ul>
-        <li *ngFor="let nav of nav_bar"><label>{{ nav.name }}</label></li>
+        <li *ngFor="let nav of nav_bar">
+            <label [routerLink]="nav.path" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">{{ nav.name }}</label>
+        </li>
     </ul>
 </div>
 <div class="navigation desktop">
     <ul>
-        <li *ngFor="let nav of nav_bar"><label>{{ nav.name }}</label></li>
+        <li *ngFor="let nav of nav_bar">
+            <label [routerLink]="nav.path" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">{{ nav.name }}</label>
+        </li>
     </ul>
 </div>

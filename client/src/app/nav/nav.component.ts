@@ -21,7 +21,16 @@ export class NavComponent implements OnInit {
   nav_bar;
   @Input('menuState') menuState:string;
   constructor() { 
-    this.nav_bar = [{name: "עמוד הבית"}, {name: "התיק שלי"}, {name: "מאמרים"}, {name: "תיקים של אחרים"}, {name: "קנה ביט"}, {name: "קנה אלטים"}, {name: "מה זה ביטקוין?"}, {name: "מי אנחנו"}];
+    this.nav_bar = [
+      {name: "עמוד הבית", path: "/"}, 
+      {name: "התיק שלי", path: "/all"}, 
+      {name: "מאמרים", path: "/all"}, 
+      {name: "תיקים של אחרים", path: "/all"}, 
+      {name: "קנה ביט", path: "/all"}, 
+      {name: "קנה אלטים", path: "/all"}, 
+      {name: "מה זה ביטקוין?", path: "/all"}, 
+      {name: "מי אנחנו", path: "/all"}
+    ];
   }
 
   ngOnInit() {
