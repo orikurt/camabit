@@ -101,4 +101,18 @@ export class CoinService {
       this._meta.next(meta);
     });
   }
+
+  allCoins(): any{
+    return this.http.get<any>(this.coinsUrl).pipe(
+      map(res => {
+        res.coins.map(coin => {
+          coin._24h_volume_usd = coin['24h_volume_usd'];
+          coin._24h_volume_ils = coin['24h_volume_ils'];
+          return coin;
+        });
+        return res.coins;
+      })
+      , map(coins => coins.sort((coina, coinb) => { return parseInt(coina.rank) - parseInt(coinb.rank); }))
+    )
+  }
 }

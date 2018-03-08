@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CoinService } from '../coin.service'
 import { Coin } from '../coin';
 
@@ -15,13 +16,14 @@ export class AllCoinsComponent implements OnInit, OnDestroy {
   scrollCallback;
   disposable;
 
-  constructor(private coinService: CoinService, private cdr: ChangeDetectorRef) { 
+  constructor(private coinService: CoinService, private cdr: ChangeDetectorRef, private route:ActivatedRoute) { 
     this.allCoins = [];
     this.currentPage = 0;
     this.scrollCallback = this.moreCoins.bind(this);  
   }
 
   ngOnInit() {
+    console.log("resolved", this.route.snapshot.data['coins']);
     this.cdr.detach();
     this.disposable = this.coinService.coins.subscribe(coins => {
       this.allCoins = this.allCoins.concat(coins);
