@@ -5,5 +5,5 @@ import json
 
 class MetaController(Base):
     async def show(self):
-        meta = await Meta.last("date")
+        meta = await Meta.first("date")
         self.respond({"meta": json.dumps(meta, default=json_util.default)})

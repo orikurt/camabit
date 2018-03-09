@@ -35,8 +35,21 @@ class Base():
         return all_document
 
     @classmethod
-    async def last(self, field):
+    async def paginate(self, page, page_size=100):
+        cursor = self._db[self._collection].find(projection={'_id': False}).skip(page_size*(page-1)).limit(page_size)
+        documents = await cursor.to_list(length=None)
+        return documents        
+
+    @classmethod
+    async def first(self, field):
         cursor = self._db[self._collection].find(projection={'_id': False}).sort(field, -1).limit(1)
+        await cursor.fetch_next
+        meta = cursor.next_object()
+        return meta
+
+    @classmethod
+    async def last(self, field):
+        cursor = self._db[self._collection].find(projection={'_id': False}).sort(field, 1).limit(1)
         await cursor.fetch_next
         meta = cursor.next_object()
         return meta
