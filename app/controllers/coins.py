@@ -4,8 +4,12 @@ from camabit.app.models.coin import Coin
 class CoinsController(Base):
     async def show(self, params={}):
         page = int(params.get('page', 1))
-        coins = await Coin.paginate(page)
-        self.respond({"coins": coins})
+        if 'coin_id' in params:
+            coin = await Coin.find(params['coin_id'])
+            self.respond({"coin": coin})
+        else:
+            coins = await Coin.paginate(page)
+            self.respond({"coins": coins})
 
     async def search(self, params={}):
         phrase = params.get('phrase', "")

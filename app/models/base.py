@@ -23,10 +23,9 @@ class Base():
         return await self._db[self._collection].update_one(selector, {"$set": attributes})
 
     @classmethod
-    async def find(self, selector):
-        cursor = self._db[self._collection].find(selector, projection={'_id': False})
-        results = await cursor.to_list(length=None)
-        return results
+    async def find(self, resource_id):
+        coin = await self._db[self._collection].find_one({"id": resource_id}, projection={'_id': False})
+        return coin
 
     @classmethod
     def all(self):
