@@ -29,14 +29,12 @@ class Base():
         return results
 
     @classmethod
-    async def all(self):
-        cursor = self._db[self._collection].find(projection={'_id': False})
-        all_document = await cursor.to_list(length=None)
-        return all_document
+    def all(self):
+        return self._db[self._collection].find(projection={'_id': False})
 
     @classmethod
     async def paginate(self, page, page_size=100):
-        cursor = self._db[self._collection].find(projection={'_id': False}).skip(page_size*(page-1)).limit(page_size)
+        cursor = self.all().skip(page_size*(page-1)).limit(page_size)
         documents = await cursor.to_list(length=None)
         return documents        
 

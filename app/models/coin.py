@@ -5,6 +5,10 @@ class Coin(Base):
     _keys = ("id", "name")
 
     @classmethod
+    def all(self):
+        return self._db[self._collection].find(projection={'_id': False}).sort("rank", 1)
+
+    @classmethod
     async def search(self, phrase):
         cursor = self._db[self._collection].find({ "$text": { "$search": phrase } }, projection={'_id': False})
         results = await cursor.to_list(length=None)
