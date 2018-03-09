@@ -23,13 +23,13 @@ export class NavComponent implements OnInit {
   constructor() { 
     this.nav_bar = [
       {name: "עמוד הבית", path: "/"}, 
-      {name: "התיק שלי", path: "/all"}, 
-      {name: "מאמרים", path: "/all"}, 
-      {name: "תיקים של אחרים", path: "/all"}, 
-      {name: "קנה ביט", path: "/all"}, 
-      {name: "קנה אלטים", path: "/all"}, 
-      {name: "מה זה ביטקוין?", path: "/all"}, 
-      {name: "מי אנחנו", path: "/all"}
+      {name: "התיק שלי", path: "/coins"}, 
+      {name: "מאמרים", path: "/coins"}, 
+      {name: "תיקים של אחרים", path: "/coins"}, 
+      {name: "קנה ביט", path: "/coins"}, 
+      {name: "קנה אלטים", path: "/coins"}, 
+      {name: "מה זה ביטקוין?", path: "/coins"}, 
+      {name: "מי אנחנו", path: "/coins"}
     ];
   }
 

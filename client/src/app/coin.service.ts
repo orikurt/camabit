@@ -8,10 +8,11 @@ import { Coin } from './coin';
 @Injectable()
 export class CoinService {
 
-  private coinsUrl = (page) => `/coins?page=${page}`;
-  private searchUrl = (phrase) => `/coins/search?phrase=${phrase}`;
-  private hotCoinUrl = '/coins/hot';
-  private metaUrl = '/meta';
+  private coinsUrl = (page) => `/api/coins?page=${page}`;
+  private coinUrl = (id) => `/api/coins?coin_id=${id}`;
+  private searchUrl = (phrase) => `/api/coins/search?phrase=${phrase}`;
+  private hotCoinUrl = '/api/coins/hot';
+  private metaUrl = '/api/meta';
   
   constructor( private http: HttpClient ) {}
 
@@ -26,7 +27,16 @@ export class CoinService {
         return res.coins;
       })
     ).publishReplay(3)
-    .refCount();;
+    .refCount();
+  }
+
+  coin(id:string){
+    return this.http.get<any>(this.coinUrl(id)).pipe(
+      map(res => {
+        return res.coin;
+      })
+    ).publishReplay(3)
+    .refCount();;    
   }
 
   search(phrase: string){
@@ -43,7 +53,7 @@ export class CoinService {
         return JSON.parse(res.meta);
       })
     ).publishReplay(1)
-    .refCount();;
+    .refCount();
   }
 
   getHotCoin(){
@@ -52,7 +62,7 @@ export class CoinService {
         return res.hotCoin;
       })
     ).publishReplay(3)
-    .refCount();;    
+    .refCount();
   }
   
 }

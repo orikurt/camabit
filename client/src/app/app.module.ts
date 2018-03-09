@@ -19,6 +19,7 @@ import { InfiniteScrollerDirective } from './infinite-scroller.directive';
 import { AppRoutingModule } from './/app-routing.module';
 import { FooterComponent } from './footer/footer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CoinPageComponent } from './coin-page/coin-page.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     NavComponent,
     InfiniteScrollerDirective,
     FooterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CoinPageComponent
   ],
   imports: [
     BrowserModule,
