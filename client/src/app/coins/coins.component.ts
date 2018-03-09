@@ -14,7 +14,6 @@ export class CoinsComponent implements OnInit, OnDestroy{
   coins: Coin[];
   currentPage;
   disposable;
-  pagesSubscription;
 
   constructor(private coinService: CoinService, private cdr: ChangeDetectorRef) { 
     this.coins = [];
@@ -23,19 +22,11 @@ export class CoinsComponent implements OnInit, OnDestroy{
     
   ngOnInit() {
     this.cdr.detach();
-    this.disposable = this.coinService.coins.subscribe(coins => {
-      this.pagesSubscription ? this.pagesSubscription.unsubscribe() : null;
-      this.pagesSubscription = this.coinService.pages.subscribe(this.handlePage);
-      this.page(this.currentPage);
-
-      if(this.disposable && this.coins.length){
-        this.disposable.unsubscribe();
-      }
-    });
+    this.disposable = this.coinService.getCoins(this.currentPage).subscribe(this.handlePage);
   }
 
   ngOnDestroy(){
-    this.pagesSubscription.unsubscribe();
+    this.disposable.unsubscribe();
   }
 
   private handlePage = (coins) => {
@@ -44,7 +35,7 @@ export class CoinsComponent implements OnInit, OnDestroy{
   }
 
   page(num){
-    this.coinService.page(num);
+    this.coinService.getCoins(num).subscribe(this.handlePage);
   }
 
   nextPage(){

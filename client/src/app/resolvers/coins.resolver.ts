@@ -9,6 +9,6 @@ export class CoinsResolve implements Resolve<any> {
   constructor(private coinService: CoinService) {}
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.coinService.allCoins();
+    return this.coinService.getCoins();
   }
 }

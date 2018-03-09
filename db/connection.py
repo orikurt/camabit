@@ -6,6 +6,7 @@ _db = None
 
 def create_indices(db):
     db["coins"].create_index([("id", TEXT), ("name", TEXT), ("symbol", TEXT)], name="search")
+    db["coins"].create_index("rank")
 
 if _db is None:
     print("connecting to db {}".format(conf.db["name"]))

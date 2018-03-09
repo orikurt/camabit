@@ -10,6 +10,7 @@ async def run():
         return
     print("running coin update: All coins {}".format(len(all_coins)))
     for coin_data in all_coins:
+        coin_data['rank'] = int(coin_data['rank'])
         coin = await Coin.first_or_create(coin_data)
     global_meta = await coin_importer.global_meta()
     print("market_cap {}".format(global_meta["total_market_cap_ils"]))

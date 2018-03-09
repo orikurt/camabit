@@ -15,12 +15,16 @@ export class MetaComponent implements OnInit {
 
   ngOnInit() {
     this.cdr.detach();
-    this.disposable = this.coinService.meta.subscribe(meta => {
+    // this.disposable = this.coinService.meta.subscribe(meta => {
+    //   this.meta = meta;
+    //   this.cdr.detectChanges();
+    //   if(this.disposable && Object.keys(this.meta).length){
+    //     this.disposable.unsubscribe();
+    //   }
+    // });
+    this.coinService.getMeta().subscribe(meta=> {
       this.meta = meta;
       this.cdr.detectChanges();
-      if(this.disposable && Object.keys(this.meta).length){
-        this.disposable.unsubscribe();
-      }
     });
   }
 
