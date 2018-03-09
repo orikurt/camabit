@@ -25,7 +25,8 @@ export class CoinService {
         });
         return res.coins;
       })
-    );
+    ).publishReplay(3)
+    .refCount();;
   }
 
   search(phrase: string){
@@ -41,7 +42,8 @@ export class CoinService {
       map(res => {
         return JSON.parse(res.meta);
       })
-    );
+    ).publishReplay(1)
+    .refCount();;
   }
 
   getHotCoin(){
@@ -49,7 +51,8 @@ export class CoinService {
       map(res => {
         return res.hotCoin;
       })
-    );    
+    ).publishReplay(3)
+    .refCount();;    
   }
   
 }
