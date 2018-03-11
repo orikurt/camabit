@@ -21,17 +21,31 @@
 
 .container{
     section{
+        display: flex;
+        flex-direction: column;
         .header{
+            width: 100%;
             h1{
                 direction: ltr;
             }
+            .price{
+                .negative{
+                    color: red;
+                }
+                .positive{
+                    color: green;
+                }
+            } 
         }
-        .price{
-            .negative{
-                color: red;
-            }
-            .positive{
-                color: green;
+        .info{
+            .stats{
+                display: table;
+                .headers, .data{
+                    display: table-row;
+                    label{
+                        display: table-cell;
+                    }
+                }
             }
         }
     }

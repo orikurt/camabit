@@ -8,10 +8,26 @@
         <h2>{{ coin.name }}</h2>
         <h4>({{ coin.symbol }})</h4>
       </div>
+      <div class="price">
+        <div>{{ coin.price_ils < 10 ? ( coin.price_ils | currency: "&#x20AA;":"symbol":"1.0-5" ) : ( coin.price_ils | currency: "&#x20AA;" ) }}</div>
+        <div [ngClass]="{'negative': coin.percent_change_24h < 0, 'positive': coin.percent_change_24h >= 0}">({{ coin.percent_change_24h }}%)</div>
+      </div>      
     </div>
-    <div class="price">
-      <div>{{ coin.price_ils < 10 ? ( coin.price_ils | currency: "&#x20AA;":"symbol":"1.0-5" ) : ( coin.price_ils | currency: "&#x20AA;" ) }}</div>
-      <div [ngClass]="{'negative': coin.percent_change_24h < 0, 'positive': coin.percent_change_24h >= 0}">({{ coin.percent_change_24h }}%)</div>
+    <div class="info">
+        <div class="stats">
+          <div class="headers">
+            <label>שווי שוק</label>
+            <label>נפח 24 שעות</label>
+            <label>כמות מטבעות</label>
+            <label>סה״כ מטבעות</label>
+          </div>
+          <div class="data">
+            <label>{{ coin.market_cap_ils | currency: "&#x20AA;" | largeNumber }}</label>
+            <label>{{ coin['24h_volume_ils'] | currency: "&#x20AA;" | largeNumber }}</label>
+            <label>{{ coin.available_supply | number | largeNumber }}</label>
+            <label>{{ coin.max_supply | number | largeNumber }}</label>
+          </div>
+        </div>
     </div>
   </section>
   <aside>
