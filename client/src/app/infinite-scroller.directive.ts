@@ -42,6 +42,9 @@ export class InfiniteScrollerDirective implements AfterViewInit {
   @Input()
   scrollPercent = 70;
 
+  @Input()
+  targetElement;
+  
   constructor(private elm: ElementRef) { }
 
   ngAfterViewInit() {
@@ -54,13 +57,16 @@ export class InfiniteScrollerDirective implements AfterViewInit {
   }
 
   private registerScrollEvent() {
-    this.scrollEvent$ = Observable.fromEvent(this.elm.nativeElement, 'scroll');
+    let element = this.elm.nativeElement;
+    if (this.targetElement){
+      element = element.closest(this.targetElement);
+    }
+    this.scrollEvent$ = Observable.fromEvent(element, 'scroll');
   }
 
   private streamScrollEvents() {
     this.userScrolledDown$ = this.scrollEvent$
       .map((e: any): any => {
-        console.log("scrolled", e);
         return e;
       })
       .map((e: any): ScrollPosition => ({
@@ -88,7 +94,6 @@ export class InfiniteScrollerDirective implements AfterViewInit {
   }
 
   private isUserScrollingDown = (positions) => {
-    console.log("scroll", (positions[0].sT < positions[1].sT), positions);
     return positions[0].sT < positions[1].sT;
   }
 
