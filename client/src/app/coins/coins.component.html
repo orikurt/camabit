@@ -1,4 +1,9 @@
-<div class="cointainer">
+<div class="cointainer" 
+  appInfiniteScroller
+  scrollPerecnt="50"
+  immediateCallback="true"
+  targetElement=".view"
+  [scrollCallback]="scrollCallback">
   <div class="navigation">
     <button (click)="nextPage()">
       <span>עמוד הבא</span>

@@ -15,7 +15,7 @@
             label{
                 cursor: pointer;
                 &:hover{
-                    font-weight: bold;
+                    color: $app-color-secondary;
                 }                       
             }
         }       

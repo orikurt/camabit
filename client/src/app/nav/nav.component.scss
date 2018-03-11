@@ -24,7 +24,7 @@
         padding: 0;
         li{
             .active{
-                font-weight: bold;
+                color: $app-color-secondary;
             }
         }
     }        

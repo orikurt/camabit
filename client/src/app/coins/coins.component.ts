@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { CoinService } from '../coin.service';
+import { Observable } from 'rxjs/Observable';
 import { Coin } from '../coin';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -11,13 +12,17 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class CoinsComponent implements OnInit, OnDestroy{
 
+  coinPage: Coin[];
   coins: Coin[];
   currentPage;
   disposable;
+  scrollCallback;
 
   constructor(private coinService: CoinService, private cdr: ChangeDetectorRef) { 
     this.coins = [];
+    this.coinPage = [];
     this.currentPage = 1;
+    this.scrollCallback = this.handleScroll.bind(this);  
   }
     
   ngOnInit() {
@@ -30,9 +35,22 @@ export class CoinsComponent implements OnInit, OnDestroy{
   }
 
   private handlePage = (coins) => {
-    this.coins = coins;
-    this.cdr.detectChanges();
+    this.coinPage = coins;
+    this.coins = [];
+    this.addChunk();
   }
+
+  private addChunk = ()=>{
+    let chunk = this.coinPage.slice(0, 10);
+    this.coinPage = this.coinPage.slice(11);
+    this.coins = this.coins.concat(chunk);
+    this.cdr.detectChanges();
+    return chunk;
+  }
+
+  private handleScroll = ()=>{
+    return Observable.of(this.addChunk());
+  };
 
   page(num){
     this.coinService.getCoins(num).subscribe(this.handlePage);
