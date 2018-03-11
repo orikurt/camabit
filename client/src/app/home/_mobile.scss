@@ -1,34 +1,39 @@
-.section{
-    &.top-section{
-        search-bar{
-            display: none;
-        }
-        .desktop-meta{
-            display: none;
-        }
-        .mobile-meta{
-            display: flex;
-            height: 42px;
-            overflow: hidden;            
-            .meta-toggle{
-                position: absolute;
-                padding-top: 12px;
+.content-view{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    .section{
+        width: 100%;
+        &.top-section{
+            search-bar{
+                display: none;
             }
-        }            
+            .desktop-meta{
+                display: none;
+            }
+            .mobile-meta{
+                display: flex;
+                height: 42px;
+                overflow: hidden;            
+                .meta-toggle{
+                    position: absolute;
+                    padding-top: 12px;
+                }
+            }            
 
-    }
-    &.coin-table{
-        .header{
-            display: none;
         }
-        .hot-coin-section{
-            display: none;
+        &.coin-table{
+            height: auto;
+            overflow: hidden;
+            .header{
+                display: none;
+            }
+            .hot-coin-section{
+                display: none;
+            }
+            section{
+                width: 100%;
+            }                            
         }
-        section{
-            width: 100%;
-        }                            
-    }
-    &.all-coins{
-        display: none;
     }
 }

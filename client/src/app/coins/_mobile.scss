@@ -1,4 +1,7 @@
 .cointainer{
+    width: 100%;
+    overflow: auto;
+    min-height: 50vh;    
     .navigation{
         button{
             position: relative;
