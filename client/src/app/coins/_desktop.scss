@@ -2,6 +2,7 @@
     width: 100%;
     overflow: auto;
     min-height: 50vh;
+    padding-right: 15px;
     .navigation{
         button{
             width: 110px;
@@ -43,7 +44,15 @@
                         width: 100px;
                         overflow: hidden;
                         text-overflow: ellipsis;
-                    }                    
+                    }
+                    &:not(.th) {
+                        &.last{
+                            border-left: 1px solid $table-border-color;
+                        }
+                    }
+                    &.td:nth-child(1){
+                        border-right: 1px solid $table-border-color;
+                    }                                
                 }
             }
         }    

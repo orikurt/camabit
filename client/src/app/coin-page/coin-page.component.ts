@@ -18,7 +18,9 @@ export class CoinPageComponent implements OnInit {
 
   ngOnInit() {
     this.coin_id = this.route.snapshot.params['id'];
-    this.coinService.coin(this.coin_id).subscribe(coin => this.coin = coin);
+    this.coinService.coin(this.coin_id).subscribe(coin => {
+      this.coin = coin;
+    });
   }
 
 }

@@ -1,0 +1,48 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    section{
+        display: flex;
+        width: 80%;
+        margin-top: 20px;
+        .header, .price{
+            text-align: right;
+            margin-right: 100px;            
+        }
+        .header{
+            display: flex;
+            .logo{
+                width: 50px;
+                img{
+                    width: 42px;
+                }
+            }
+            .name{
+                h2, h4{
+                    margin: 3px;
+                }                
+            }
+            .price{
+                font-size: 24px;
+            }            
+        }
+        .info{
+            margin-top: 25px;
+            .stats{
+                width: 50%;
+                padding-right: 50px;
+                .headers{
+                    font-size: 18px;
+                    color: $app-color-secondary;
+                } 
+                .data{
+                    font-size: 20px;
+                    color: $app-color;
+                }
+            }
+        }
+    }
+    aside{
+        width: 20%;
+    }
+}
