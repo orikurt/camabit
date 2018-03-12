@@ -26,6 +26,21 @@
                 font-size: 24px;
             }            
         }
+        .info{
+            margin-top: 25px;
+            .stats{
+                width: 50%;
+                padding-right: 50px;
+                .headers{
+                    font-size: 18px;
+                    color: $app-color-secondary;
+                } 
+                .data{
+                    font-size: 20px;
+                    color: $app-color;
+                }
+            }
+        }
     }
     aside{
         width: 20%;

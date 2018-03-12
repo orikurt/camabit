@@ -37,13 +37,12 @@
             .tr{
                 display: table-row;
                 cursor: pointer;
-                border-bottom: 1px solid $app-color;
                 .th, .td{
                     display: table-cell;
                     text-align: center;
                     vertical-align: middle;
                     padding: 5px;
-                    border-bottom: 1px solid $app-color;
+                    border-bottom: 1px solid $table-border-color;
                     .change{
                         direction: ltr;
                         width: 100%;
