@@ -48,8 +48,8 @@
         <div class="scrolls">
           <div class="tr header">    
             <div class="th">מחיר</div>        
-            <div class="th">שעה</div>
             <div class="th">24 שעות</div>
+            <div class="th">שעה</div>            
             <div class="th">שבוע</div>
             <div class="th">שווי שוק</div>
             <div class="th">כמות מטבעות</div>
@@ -64,14 +64,14 @@
             </div>   
             <div class="td">
               <div class="change">
-                <span [ngClass]="{'negative': coin.percent_change_1h < 0, 'positive': coin.percent_change_1h >= 0}">{{coin.percent_change_1h}}%</span>
+                <span [ngClass]="{'negative': coin.percent_change_24h < 0, 'positive': coin.percent_change_24h >= 0}">{{coin.percent_change_24h}}%</span>
               </div>          
             </div>
             <div class="td">
               <div class="change">
-                <span [ngClass]="{'negative': coin.percent_change_24h < 0, 'positive': coin.percent_change_24h >= 0}">{{coin.percent_change_24h}}%</span>
+                <span [ngClass]="{'negative': coin.percent_change_1h < 0, 'positive': coin.percent_change_1h >= 0}">{{coin.percent_change_1h}}%</span>
               </div>          
-            </div>
+            </div>            
             <div class="td">
               <div class="change">
                 <span [ngClass]="{'negative': coin.percent_change_7d < 0, 'positive': coin.percent_change_7d >= 0}">{{coin.percent_change_7d}}%</span>
@@ -98,8 +98,8 @@
           <div class="th logo"></div> 
           <div class="th">מטבע</div>
           <div class="th">מחיר</div>        
-          <div class="th">שעה</div>
           <div class="th">24 שעות</div>
+          <div class="th">שעה</div>          
           <div class="th">שבוע</div>
           <div class="th">שווי שוק</div>
           <div class="th">כמות מטבעות</div>
@@ -119,14 +119,14 @@
           </div>   
           <div class="td">
             <div class="change">
-              <span [ngClass]="{'negative': coin.percent_change_1h < 0, 'positive': coin.percent_change_1h >= 0}">{{coin.percent_change_1h}}%</span>
-            </div>          
-          </div>
-          <div class="td">
-            <div class="change">
               <span [ngClass]="{'negative': coin.percent_change_24h < 0, 'positive': coin.percent_change_24h >= 0}">{{coin.percent_change_24h}}%</span>
             </div>          
           </div>
+          <div class="td">
+              <div class="change">
+                <span [ngClass]="{'negative': coin.percent_change_1h < 0, 'positive': coin.percent_change_1h >= 0}">{{coin.percent_change_1h}}%</span>
+              </div>          
+            </div>          
           <div class="td">
             <div class="change">
               <span [ngClass]="{'negative': coin.percent_change_7d < 0, 'positive': coin.percent_change_7d >= 0}">{{coin.percent_change_7d}}%</span>

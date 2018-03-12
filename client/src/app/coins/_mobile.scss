@@ -36,6 +36,7 @@
         }
     }    
     .coins-table{
+        font-size: 12px;
         &.desktop-table{
             display: none !important;
         }        
@@ -44,7 +45,7 @@
             flex-wrap: wrap;            
             width: 100%;
             .fixed-wrapper{
-                width: 142px;
+                width: 107px;
                 display: table-cell;
                 border-left: 2px solid $app-color;
                 .fixed{
@@ -53,7 +54,7 @@
             }
             .scrolls-wrapper{
                 display: table-cell;
-                width: calc(100% - 150px);
+                width: calc(100% - 110px);
                 overflow: hidden;
                 border-left: 1px solid $app-color;
                 .scrolls{
@@ -64,7 +65,6 @@
             }
             .tr{
                 padding: 3px;
-                font-size: 14px;
                 height: 88px;
                 &.header {
                     height: 42px;
@@ -81,7 +81,7 @@
                         border-left: 1px solid $app-color;
                     }
                     &.details{
-                        max-width: 94px;
+                        max-width: 90px;
                         .name{
                             font-size: 12px;
                             overflow: hidden;
