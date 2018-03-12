@@ -3,6 +3,11 @@
     overflow: auto;
     min-height: 50vh;
     padding-right: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    .navigation, .currencies{
+        width: 50%;
+    }
     .navigation{
         button{
             width: 110px;

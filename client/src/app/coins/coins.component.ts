@@ -14,6 +14,7 @@ export class CoinsComponent implements OnInit, OnDestroy{
 
   coinPage: Coin[];
   coins: Coin[];
+  currency: string;
   currentPage;
   disposable;
   scrollCallback;
@@ -22,6 +23,7 @@ export class CoinsComponent implements OnInit, OnDestroy{
     this.coins = [];
     this.coinPage = [];
     this.currentPage = 1;
+    this.currency = "ils";
     this.scrollCallback = this.handleScroll.bind(this);  
   }
     
@@ -66,4 +68,9 @@ export class CoinsComponent implements OnInit, OnDestroy{
   trackFunc(index, item){
     return item.id;
   }  
+
+  setCurrency(currency){
+    this.currency = currency;
+    this.cdr.detectChanges();
+  }
 }

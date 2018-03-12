@@ -4,6 +4,14 @@
   immediateCallback="true"
   targetElement=".view"
   [scrollCallback]="scrollCallback">
+  <div class="currencies">
+      <button class="ils" (click)="setCurrency('ils')">
+        <span>&#x20AA;</span>
+      </button>    
+      <button class="usd" (click)="setCurrency('usd')">
+        <span>$</span>
+      </button>      
+  </div>
   <div class="navigation">
     <button (click)="nextPage()">
       <span>עמוד הבא</span>
@@ -49,7 +57,8 @@
           </div>          
           <div class="tr" *ngFor="let coin of coins; trackBy: trackFunc">
             <div class="td"> 
-              {{ coin.price_ils < 10 ? ( coin.price_ils | currency: "&#x20AA;":"symbol":"1.0-5" ) : ( coin.price_ils | currency: "&#x20AA;" ) }}
+              <label *ngIf="currency == 'ils'">{{ coin.price_ils < 10 ? ( coin.price_ils | currency: "&#x20AA;":"symbol":"1.0-5" ) : ( coin.price_ils | currency: "&#x20AA;" ) }}</label>
+              <label *ngIf="currency == 'usd'">{{ coin.price_usd < 10 ? ( coin.price_usd | currency: "$":"symbol":"1.0-5" ) : ( coin.price_usd | currency: "$" ) }}</label>
             </div>   
             <div class="td">
               <div class="change">
@@ -100,7 +109,8 @@
           <div class="td logo"><img class="coin-icon" [src]="coin.image_url"></div>
           <div class="td name">{{ coin.name }}</div>
           <div class="td"> 
-            {{ coin.price_ils < 10 ? ( coin.price_ils | currency: "&#x20AA;":"symbol":"1.0-5" ) : ( coin.price_ils | currency: "&#x20AA;" ) }}
+            <label *ngIf="currency == 'ils'">{{ coin.price_ils < 10 ? ( coin.price_ils | currency: "&#x20AA;":"symbol":"1.0-5" ) : ( coin.price_ils | currency: "&#x20AA;" ) }}</label>
+            <label *ngIf="currency == 'usd'">{{ coin.price_usd < 10 ? ( coin.price_usd | currency: "$":"symbol":"1.0-5" ) : ( coin.price_usd | currency: "$" ) }}</label>
           </div>   
           <div class="td">
             <div class="change">
