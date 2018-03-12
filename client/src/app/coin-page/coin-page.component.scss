@@ -40,6 +40,12 @@
         .info{
             .stats{
                 display: table;
+                .headers{
+                    color: $app-color-secondary;
+                }
+                .data{
+                    color: $app-color;
+                }
                 .headers, .data{
                     display: table-row;
                     label{
