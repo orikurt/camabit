@@ -25,7 +25,7 @@
             <div class="th rank"></div> 
             <div class="th details">מטבע</div>
           </div>          
-          <div class="tr" *ngFor="let coin of coins; trackBy: trackFunc">
+          <div class="tr" *ngFor="let coin of coins; trackBy: trackFunc" [routerLink]="['/coins', coin.id]">
             <div class="td rank">{{coin.rank}}</div>
             <div class="td details">
                 <div class="logo"><img class="coin-icon" [src]="coin.image_url"></div>
@@ -95,7 +95,7 @@
         </div>
       </div>
       <div class="tbody" *ngIf="coins.length">
-        <div class="tr" *ngFor="let coin of coins; trackBy: trackFunc">
+        <div class="tr" *ngFor="let coin of coins; trackBy: trackFunc" [routerLink]="['/coins', coin.id]">
           <div class="td rank">{{coin.rank}}</div>
           <div class="td logo"><img class="coin-icon" [src]="coin.image_url"></div>
           <div class="td name">{{ coin.name }}</div>
