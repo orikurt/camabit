@@ -1,8 +1,6 @@
 @import '../../styles.scss';
 
 .search{
-    align-items: center;
-    display: flex;
     padding: 15px;
 
     input{
@@ -15,6 +13,8 @@
         background-color: $app-color;
         color: white;
         cursor: pointer;
+        position: relative;
+        top: 6px;
         i {
             position: relative;
             top: 3px;
