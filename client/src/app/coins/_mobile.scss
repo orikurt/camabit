@@ -2,24 +2,36 @@
     width: 100%;
     overflow: auto;
     min-height: 50vh;    
-    .navigation{
+    .navigation, .currencies{
+        width: 45%;
+        display: inline-block;
+        height: 42px;
         button{
+            height: 32px;
             position: relative;
             left: 5px;
-            width: 42px;
-            height: 32px;
-            font-size: 14px;
-            margin:3px 0px;
-            &.current{
-                width: 21px;
-                margin: 5px 0px;
-            }
-            span{
-                display: none;
-            }
             i{
                 position: relative;
                 top: 1px;
+            }
+        }
+    }
+    .navigation{
+        button{            
+            width: 42px;
+            font-size: 14px;
+            &.current{
+                width: 21px;
+                margin: 5px 0px;
+                span{
+                    position: relative;
+                    bottom: 6px;                    
+                }                
+            }
+            &:not(.current){ 
+                span{
+                    display: none;
+                }
             }
         }
     }    

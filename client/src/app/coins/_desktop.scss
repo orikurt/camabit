@@ -7,12 +7,14 @@
     flex-wrap: wrap;
     .navigation, .currencies{
         width: 50%;
+        button{
+            height: 42px;
+        }
     }
     .navigation{
         button{
-            width: 110px;
-            height: 42px;
             font-size: 14px;
+            width: 110px;
             &.current{
                 width: 42px;
             }
@@ -24,6 +26,12 @@
                 position: relative;
                 bottom: 6px;
             }
+        }
+    }
+    .currencies{
+        button{
+            font-size: 22px;
+            width: 42px;            
         }
     }
     app-spinner{

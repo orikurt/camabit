@@ -5,11 +5,13 @@
   targetElement=".view"
   [scrollCallback]="scrollCallback">
   <div class="currencies">
-      <button class="ils" (click)="setCurrency('ils')">
+      <button class="ils" (click)="setCurrency('ils')" [ngClass]="{'current': currency == 'ils'}">
         <span>&#x20AA;</span>
+        <i></i>
       </button>    
-      <button class="usd" (click)="setCurrency('usd')">
+      <button class="usd" (click)="setCurrency('usd')" [ngClass]="{'current': currency == 'usd'}">
         <span>$</span>
+        <i></i>
       </button>      
   </div>
   <div class="navigation">
@@ -75,7 +77,10 @@
                 <span [ngClass]="{'negative': coin.percent_change_7d < 0, 'positive': coin.percent_change_7d >= 0}">{{coin.percent_change_7d}}%</span>
               </div>          
             </div>        
-            <div class="td">{{ coin.market_cap_ils | currency: "&#x20AA;" | largeNumber }}</div>        
+            <div class="td">
+              <label *ngIf="currency == 'ils'">{{ coin.market_cap_ils | currency: "&#x20AA;" | largeNumber }}</label>
+              <label *ngIf="currency == 'usd'">{{ coin.market_cap_usd | currency: "$" | largeNumber }}</label>
+            </div>
             <div class="td">{{ coin.total_supply | number | largeNumber }}</div>
             <div class="td">{{ coin.max_supply | number | largeNumber }}</div>
             <div class="td">?</div>
@@ -127,7 +132,10 @@
               <span [ngClass]="{'negative': coin.percent_change_7d < 0, 'positive': coin.percent_change_7d >= 0}">{{coin.percent_change_7d}}%</span>
             </div>          
           </div>        
-          <div class="td">{{ coin.market_cap_ils | currency: "&#x20AA;" | largeNumber }}</div>        
+          <div class="td">
+              <label *ngIf="currency == 'ils'">{{ coin.market_cap_ils | currency: "&#x20AA;" | largeNumber }}</label>
+              <label *ngIf="currency == 'usd'">{{ coin.market_cap_usd | currency: "$" | largeNumber }}</label>
+          </div>
           <div class="td">{{ coin.total_supply | number | largeNumber }}</div>
           <div class="td">{{ coin.max_supply | number | largeNumber }}</div>
           <div class="td">?</div>
