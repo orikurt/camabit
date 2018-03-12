@@ -7,7 +7,7 @@
       [scrollCallback]="scrollCallback">
       
       <span class="coin" *ngFor="let coin of allCoins; trackBy: trackFunc">
-        <img class="coin-icon" [src]="coin.image_url">
+        <img class="coin-icon" [src]="coin.image_url" [routerLink]="['/coins', coin.id]" title="{{coin.name}}">
       </span>
   </div>
   <div class="footer"></div>
