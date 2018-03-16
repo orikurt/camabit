@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject'
+import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Coin } from './coin';
 
 @Injectable()
 export class CoinService {

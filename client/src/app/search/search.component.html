@@ -1,4 +1,12 @@
 <div class="search">
-    <input placeholder="חפש מטבע">
+    <input placeholder="חפש מטבע" (keydown)="doSearch()" (blur)="clear()" [(ngModel)]="term">
     <button><i class="material-icons">search</i></button>
+    <div class="results">
+        <ul>
+            <li *ngFor="let coin of searchResults">
+                <label>{{coin.symbol}}</label>
+                <label>{{coin.name}}</label>
+            </li>
+        </ul>
+    </div>
 </div>

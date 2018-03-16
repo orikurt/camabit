@@ -11,6 +11,10 @@ class CoinsController(Base):
             coins = await Coin.paginate(page)
             self.respond({"coins": coins})
 
+    async def index(self, params={}):
+        coins = await Coin.custom_index()
+        self.respond({"coins": coins})
+
     async def search(self, params={}):
         phrase = params.get('phrase', "")
         results = await Coin.search(phrase)

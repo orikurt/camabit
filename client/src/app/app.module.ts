@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
 import { CoinService } from './coin.service';
+import { SearchService } from './search.service';
 import { CoinsComponent } from './coins/coins.component';
 import { MetaComponent } from './meta/meta.component';
 import { HotCoinComponent } from './hot-coin/hot-coin.component';
@@ -43,9 +45,10 @@ import { CoinPageComponent } from './coin-page/coin-page.component';
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [CoinService],
+  providers: [CoinService, SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -13,3 +13,9 @@ class Coin(Base):
         cursor = self._db[self._collection].find({ "$text": { "$search": phrase } }, projection={'_id': False})
         results = await cursor.to_list(length=None)
         return results
+
+    @classmethod
+    async def custom_index(self):
+        cursor = self._db[self._collection].find(projection={'_id': False, 'id': True, 'name': True, 'symbol': True})
+        results = await cursor.to_list(length=None)
+        return results        
