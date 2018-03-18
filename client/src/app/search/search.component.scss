@@ -10,7 +10,7 @@
     }
     i {
         position: relative;
-        top: 3px;
+        top: 6px;
     }
     .results{
         background-color: #fefefe;
@@ -21,8 +21,8 @@
                 padding: 10px;
                 border: 1px solid $table-border-color;
                 cursor: pointer;
-                &:hover, &.selected{
-                    background-color: $app-color-secondary;
+                &.selected{
+                    background-color: $app-color;
                     color: white;
                 }
                 label{

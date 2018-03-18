@@ -12,7 +12,11 @@
     <i class="material-icons">search</i>
     <div class="results">
         <ul>
-            <li *ngFor="let coin of searchResults; let i = index" [routerLink]="['/coins', coin.id]" [ngClass]="{'selected': selected == i}">
+            <li *ngFor="let coin of searchResults; let i = index" 
+                [routerLink]="['/coins', coin.id]" 
+                [ngClass]="{'selected': selected == i}"
+                (mouseenter)="setSelected(i)"
+            >
                 <label>{{coin.symbol}}</label>
                 <label>{{coin.name}}</label>
             </li>

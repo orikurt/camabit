@@ -29,6 +29,10 @@ export class SearchComponent {
     }, 200)
   }
 
+  setSelected(i){
+    this.selected = i;
+  }
+
   incrementSelected(){
    this.selected = (this.selected + 1) % this.searchResults.length;
   }
