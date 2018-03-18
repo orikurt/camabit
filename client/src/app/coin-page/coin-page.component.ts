@@ -14,13 +14,16 @@ export class CoinPageComponent implements OnInit {
 
   constructor(private coinService: CoinService, private route: ActivatedRoute) { 
     this.coin = {} as Coin;
+    route.params.subscribe(val => { 
+      this.coin_id = this.route.snapshot.params['id'];
+      this.coinService.coin(this.coin_id).subscribe(coin => {
+        this.coin = coin;
+      });
+    });     
   }
 
   ngOnInit() {
-    this.coin_id = this.route.snapshot.params['id'];
-    this.coinService.coin(this.coin_id).subscribe(coin => {
-      this.coin = coin;
-    });
+
   }
 
 }

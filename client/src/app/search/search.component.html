@@ -1,9 +1,18 @@
 <div class="search">
-    <input placeholder="חפש מטבע" (keydown)="doSearch()" (blur)="clear()" [(ngModel)]="term">
-    <button><i class="material-icons">search</i></button>
+    <input 
+        placeholder="חפש מטבע" 
+        [(ngModel)]="queryTerm" 
+        (ngModelChange)="doSearch()" 
+        (blur)="clear()" 
+        (focus)="doSearch()" 
+        (keydown.arrowup)="decrementSelected()"
+        (keydown.arrowdown)="incrementSelected()"
+        (keydown.enter)="navigate()"
+        autofocus>
+    <i class="material-icons">search</i>
     <div class="results">
         <ul>
-            <li *ngFor="let coin of searchResults">
+            <li *ngFor="let coin of searchResults; let i = index" [routerLink]="['/coins', coin.id]" [ngClass]="{'selected': selected == i}">
                 <label>{{coin.symbol}}</label>
                 <label>{{coin.name}}</label>
             </li>

@@ -1,4 +1,5 @@
-<div class="navigation mobile" [@slideInOut]="menuState" (click)="toggle()">
+<div class="navigation mobile" [@slideInOut]="menuState">
+    <search-bar></search-bar>
     <ul>
         <li *ngFor="let nav of nav_bar">
             <label [routerLink]="nav.path" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">{{ nav.name }}</label>

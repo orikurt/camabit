@@ -2,22 +2,33 @@
 
 .search{
     padding: 15px;
-
+    padding-bottom: 0px;
     input{
         height: 18px;
         border-radius: 3px;
         padding: 5px;
     }
-
-    button{
-        background-color: $app-color;
-        color: white;
-        cursor: pointer;
+    i {
         position: relative;
-        top: 6px;
-        i {
-            position: relative;
-            top: 3px;
+        top: 3px;
+    }
+    .results{
+        background-color: #fefefe;
+        width: 90%;
+        ul{
+            li{
+                list-style: none;
+                padding: 10px;
+                border: 1px solid $table-border-color;
+                cursor: pointer;
+                &:hover, &.selected{
+                    background-color: $app-color-secondary;
+                    color: white;
+                }
+                label{
+                    cursor: pointer;
+                }
+            }
         }
     }
 }

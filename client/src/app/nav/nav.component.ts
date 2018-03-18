@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -11,7 +12,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
         height: '1px',
       })),
       state('out', style({
-        height: '273px',
+        height: '320px',
       })),
       transition('in <=> out', animate('500ms ease-in-out'))
     ])
@@ -20,7 +21,11 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class NavComponent implements OnInit {
   nav_bar;
   @Input('menuState') menuState:string;
-  constructor() { 
+  constructor(private router:Router) {
+    router.events.subscribe((val) => this.menuState = 'down'); 
+  }
+
+  ngOnInit() {
     this.nav_bar = [
       {name: "עמוד הבית", path: "/"}, 
       {name: "התיק שלי", path: "/coins"}, 
@@ -30,10 +35,7 @@ export class NavComponent implements OnInit {
       {name: "קנה אלטים", path: "/coins"}, 
       {name: "מה זה ביטקוין?", path: "/coins"}, 
       {name: "מי אנחנו", path: "/coins"}
-    ];
-  }
-
-  ngOnInit() {
+    ];    
   }
   
   toggle(){
