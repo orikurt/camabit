@@ -13,7 +13,7 @@ class Base():
         IOLoop.current().run_sync(lambda: self.create(attributes))
 
     async def create(self, attributes):
-        result = await self._db[self._collection].insert_one(attributes)
+        return await self._db[self._collection].insert_one(attributes)
 
     async def delete(self, selector):
         pass
@@ -41,8 +41,14 @@ class Base():
     async def first(self, field):
         cursor = self._db[self._collection].find(projection={'_id': False}).sort(field, -1).limit(1)
         await cursor.fetch_next
-        meta = cursor.next_object()
-        return meta
+        document = cursor.next_object()
+        return document
+
+    @classmethod
+    async def limit(self, field, limit=1):
+        cursor = self._db[self._collection].find(projection={'_id': False}).sort(field, -1).limit(limit)
+        documents = await cursor.to_list(length=None)
+        return documents
 
     @classmethod
     async def last(self, field):

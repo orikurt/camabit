@@ -8,7 +8,7 @@
             display: flex;
             flex-wrap: wrap;
             search-bar{
-                position: absolute;
+                position: fixed;
                 left: 0;
                 width: 20%;
                 z-index: 10;
@@ -34,7 +34,7 @@
             .hot-coin-section{
                 width: 20%;
                 cursor: pointer;
-                position: absolute;
+                position: fixed;
                 left: 0;
             }        
         }

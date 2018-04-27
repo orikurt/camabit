@@ -2,6 +2,7 @@
     display: table-row-group;
     div{
         display: table-row;
+        height: 50px;
         span{
             display: table-cell;
             &.change{

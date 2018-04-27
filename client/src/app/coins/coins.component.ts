@@ -23,7 +23,7 @@ export class CoinsComponent implements OnInit, OnDestroy{
     this.coins = [];
     this.coinPage = [];
     this.currentPage = 1;
-    this.currency = "ils";
+    this.currency = "usd";
     this.scrollCallback = this.handleScroll.bind(this);  
   }
     

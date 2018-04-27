@@ -27,13 +27,13 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
     this.nav_bar = [
-      {name: "עמוד הבית", path: "/"}, 
-      {name: "התיק שלי", path: "/coins"}, 
-      {name: "מאמרים", path: "/coins"}, 
-      {name: "תיקים של אחרים", path: "/coins"}, 
-      {name: "קנה ביט", path: "/coins"}, 
-      {name: "קנה אלטים", path: "/coins"}, 
-      {name: "מה זה ביטקוין?", path: "/coins"}, 
+      {name: "מכונת הכסף", path: "/"},
+      {name: "מטבעות", path: "/coins"},
+      {name: "שירות האיתותים", path: "/coins"},
+      {name: "התיק שלי", path: "/coins"},
+      {name: "קנה ביט", path: "/coins"},
+      {name: "קנה אלטים", path: "/coins"},
+      {name: "מאמרים", path: "/coins"},
       {name: "מי אנחנו", path: "/coins"}
     ];    
   }

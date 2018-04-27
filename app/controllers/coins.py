@@ -21,5 +21,5 @@ class CoinsController(Base):
         self.respond({"results": results})
 
     async def hot(self, params={}):
-        hot_coin = await Coin.first('percent_change_24h')
-        self.respond({'hotCoin': hot_coin})
+        hot_coins = await Coin.limit('percent_change_24h', 10)
+        self.respond({'hotCoins': hot_coins})

@@ -8,12 +8,12 @@ import { Coin } from '../coin';
   styleUrls: ['./hot-coin.component.scss']
 })
 export class HotCoinComponent implements OnInit {
-  hotCoin: Coin;
+  hotCoins: Coin[];
 
   constructor(private coinService: CoinService) { 
-    this.hotCoin = {} as Coin;
+    this.hotCoins = [] as Coin[];
   }
   ngOnInit() {
-    this.coinService.getHotCoin().subscribe(coin => this.hotCoin = coin);
+    this.coinService.getHotCoin().subscribe(coins => this.hotCoins = coins);
   }
 }

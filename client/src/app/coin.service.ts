@@ -56,7 +56,7 @@ export class CoinService {
   getHotCoin(){
     return this.http.get<any>(this.hotCoinUrl).pipe(
       map(res => {
-        return res.hotCoin;
+        return res.hotCoins;
       })
     ).publishReplay(3)
     .refCount();

@@ -1,4 +1,5 @@
 from camabit.app.models.base import Base
 
 class User(Base):
-    pass
+    _collection = "users"
+    _keys = ("id", "email")

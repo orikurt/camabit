@@ -24,6 +24,7 @@ export class MetaComponent implements OnInit {
     // });
     this.coinService.getMeta().subscribe(meta=> {
       this.meta = meta;
+      console.log(meta);
       this.cdr.detectChanges();
     });
   }
